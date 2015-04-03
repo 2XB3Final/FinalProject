@@ -20,7 +20,7 @@ public abstract class DataLoader{
 		//TODO implement
 		//Step 1: read in the new Node.
 		//Step 2: Binary search for the of the from Node's position to insert it.
-		//Step 3: If we find the from Node's id, just append to that Node, otherwise, create new Node.
+		//Step 3: If we find the from Node's id, just append to that Node using a sorted insertion, otherwise, create new Node.
 		//Step 4: Repeat steps 2 and 3 for adding the to Node.
 		//Step 5: Lather, rinse, repeat until out of lines in the data file.
 		return new Node[0];
@@ -33,5 +33,14 @@ public abstract class DataLoader{
 	public static void writeData(Node node){
 		//TODO implement
 	}//writeData()
+	
+	/**
+	 * Runs through the supplied list of Nodes in order to test various methods. Writes the results of the tests
+	 * to a pre-specified output file.
+	 * @param graph
+	 */
+	public static void writeResultFile(Node[] graph){
+		//TODO determine how we wish to output the results.
+	}//writeResultFile()
 	
 }//DataLoader
