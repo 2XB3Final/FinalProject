@@ -1,3 +1,5 @@
+// TEST
+
 /*************************************************************************
  *  Compilation:  javac Digraph.java
  *  Execution:    java Digraph filename.txt
