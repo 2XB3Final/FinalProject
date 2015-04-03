@@ -1,0 +1,44 @@
+1) how to handle datasets where the numbers aren’t 0,1,2,3…etc
+
+- input might instead be 120485, 160483… etc or “Paul G”, “Sally S”… etc. They must be converted into 0,1,2,3… etc because each vertex’s number corresponds to an array index. This might require hashing so we can get back the original input identifier. E.g. so we can go back from “vertex 3” to “Sally”.
+
+2) create a Constructor that will handle an incoming datastream and make edges and a digraph from it, in Digraph
+
+3) identify original source(s)
+
+- reverse postorder using DFS w/ stack
+
+- must figure out a way to check if there is just one source or multiple (defined as a vertex without any edges pointing to it, and only edges pointing from it)
+
+
+4) the people to whom a given person spread the rumour
+
+- adjacency list from Digraph
+
+5) the people from whom a given person heard the rumour
+
+- in the construction of the graph (addEdge), must implement a list like adj, but instead of storing all the vertices that a given vertex points to, it will store the vertices that a given vertex points from. E.g. For v -> w, v -> x, z -> w, adj[v] = [w,x] but to[w] = [v,z]
+
+6) all the people that were involved in rumour spreading
+
+- maybe make a list of all the people who passed on the rumour and a separate list of all the people who heard the rumour. Then each list can be sorted for easy searching and nice printing to output. Can use these lists for a method to check whether a specific person was involved (see #9)
+
+7) the people that have heard the rumour but did not spread it (dead ends)
+
+- See above: perhaps grab each name in turn from the list of all people who heard the rumour and use a search algorithm to try to find it on the list of people who passed on the rumour. If it’s a search miss, then the person is a “dead end”
+
+- a dead end vertex v essentially means that to[v] is nonempty, but adj[v] is empty, so that is another way that this list can be built (but this way doesn’t cram in the use of search algorithms, which we might wanna do to make the prof happy)
+
+8) from whom the person heard the rumour first, assuming that each transmission of the information from one person to another takes the same length of time
+
+- once you find out the source, you can do a BST from the source to this vertex v and find a shortest path using edgeTo array. But I think this might only returns a path - if there are multiple paths with the same length, maybe we want to return them all?
+
+- perhaps to return all the shortest paths, access to[v] and get all the vertices that point to v. Do BST between the source and all of those vertices, and return the vertices with the shortest path. Otherwise, maybe we can modify BST to manipulate it to return all vertices with the shortest path
+
+9) determine if a certain person is among the rumour spreaders
+
+- easy to do if we’ve made lists (see #6)
+
+10) handle input datasets that are directed but not acyclic
+
+- first, use the strong components algorithm to produce a DAG, where each vertex now represents a group. Need some way to assign a new vertex number to represent a group, and a way to check the new vertex and find out the group it represents (Key-Value lookup, like hashing). With new vertices representing groups, it can now be made into a graph and processed as usual. It’s just that when you access a vertex, you have to find out the group it represents. E.g. vertex 3 might actually represent individuals 120485, 160483, and 20419.
