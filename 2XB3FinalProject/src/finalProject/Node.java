@@ -66,6 +66,13 @@ public class Node{
 		}
 	}//enlargeArrays()
 	
+	/**
+	 * Returns this Node's ID value as a String.
+	 * @return A String representation of this Node.
+	 */
+	@Override
+	public String toString(){ return Integer.toString(nodeID); }//toString()
+	
 	// Getters & Setters //
 	public Node[] getParents(){ return parents; }//getParents()
 	public Node[] getChildren(){ return children; }//getChildren()

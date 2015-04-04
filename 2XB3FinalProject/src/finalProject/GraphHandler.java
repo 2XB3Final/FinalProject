@@ -4,12 +4,17 @@ package finalProject;
  * @version 01
  */
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class GraphHandler{
 
 	public static void main(){
-		File file = new File("");//TODO enter file location.
-		Node[] data = DataLoader.readData(file);
+		File file = new File("data/tinyDAG.txt");//TODO enter file location.
+		try{
+			Node[] data = DataLoader.readData(file);
+		}catch(FileNotFoundException fnfe){
+			System.out.println("Unfortunately, the data file could not be located.");
+		}
 	}//main()
 
 	/**
