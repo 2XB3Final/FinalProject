@@ -94,7 +94,6 @@ public class Bag<Item> implements Iterable<Item> {
         N++;
     }
 
-
     /**
      * Returns an iterator that iterates over the items in the bag in arbitrary order.
      * @return an iterator that iterates over the items in the bag in arbitrary order

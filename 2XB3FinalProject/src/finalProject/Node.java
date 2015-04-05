@@ -2,6 +2,10 @@ package finalProject;
 /**
  * @author Eric Le Fort
  * @version 01
+ * 
+ * Abstract:
+ * Each Node has a list of parents and children. The children represent who the information has been spread to and the
+ * parents represent who the information has come from.
  */
 
 public class Node{
@@ -66,8 +70,17 @@ public class Node{
 		}
 	}//enlargeArrays()
 	
+	/**
+	 * Returns this Node's ID value as a String.
+	 * @return A String representation of this Node.
+	 */
+	@Override
+	public String toString(){ return Integer.toString(nodeID); }//toString()
+	
 	// Getters & Setters //
 	public Node[] getParents(){ return parents; }//getParents()
 	public Node[] getChildren(){ return children; }//getChildren()
 	public int getID(){ return nodeID; }//getID()
+	public int getNumParents(){ return numParents; }//getNumParents()
+	public int getNumChildren(){ return numChildren; }//getNumChildren()
 }//Node
