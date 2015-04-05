@@ -1,9 +1,6 @@
 package GraphFinalProj;
 
-<<<<<<< HEAD:2XB3FinalProject/src/finalProject/DirectedCycle.java
 import GraphFinalProj.Digraph;
-=======
->>>>>>> Fiona:2XB3FinalProject/src/GraphFinalProj/DirectedCycle.java
 import java.util.Stack;
 
 /*************************************************************************
