@@ -38,6 +38,7 @@ public abstract class DataLoader{
 		tempData.clear();									//Removes the temporary ArrayList to clear space.
 		mergeSort(data);									//data is now sorted first by fromNodeID and then toNodeID.
 		
+		//Note: ensure proper data format, print out "Invalid file format" otherwise.
 		//Step 1: Make array of ALL Nodes.
 		//TODO implement
 		//Step 1: read in the new Node.
@@ -72,21 +73,12 @@ public abstract class DataLoader{
 	}//writeData()
 	
 	/**
-	 * Creates a new file or overwrites a previous file using the given parameters.
-	 * @param fileName
-	 * @param contents
-	 * @param fileType
-	 */
-	public static void createFile(String filePath, String contents, String fileType){
-		
-	}//createFile()
-	
-	/**
 	 * Runs through the supplied list of Nodes in order to test various methods. Writes the results of the tests
-	 * to a pre-specified output file.
+	 * to the passed in output file.
 	 * @param graph
+	 * @param file
 	 */
-	public static void writeResultFile(Node[] graph){
+	public static void writeResultFile(Node[] graph, File file){
 		//TODO determine how we wish to output the results.
 	}//writeResultFile()
 	
