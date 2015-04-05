@@ -1,5 +1,7 @@
 package finalProject;
 
+import GraphFinalProj.Digraph;
+
 /*************************************************************************
  *  Compilation:  javac DirectedCycle.java
  *  Execution:    java DirectedCycle < input.txt

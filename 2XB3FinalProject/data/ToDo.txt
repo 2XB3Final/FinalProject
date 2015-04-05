@@ -31,9 +31,9 @@
 
 8) from whom the person heard the rumour first, assuming that each transmission of the information from one person to another takes the same length of time
 
-- once you find out the source, you can do a BST from the source to this vertex v and find a shortest path using edgeTo array. But I think this might only returns a path - if there are multiple paths with the same length, maybe we want to return them all?
+- once you find out the source, you can do a BFS from the source to this vertex v and find a shortest path using edgeTo array. But I think this might only returns a path - if there are multiple paths with the same length, maybe we want to return them all?
 
-- perhaps to return all the shortest paths, access to[v] and get all the vertices that point to v. Do BST between the source and all of those vertices, and return the vertices with the shortest path. Otherwise, maybe we can modify BST to manipulate it to return all vertices with the shortest path
+- perhaps to return all the shortest paths, access to[v] and get all the vertices that point to v. Do BFS between the source and all of those vertices, and return the vertices with the shortest path. Otherwise, maybe we can modify BST to manipulate it to return all vertices with the shortest path
 
 9) determine if a certain person is among the rumour spreaders
 
