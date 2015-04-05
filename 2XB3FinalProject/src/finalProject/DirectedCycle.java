@@ -1,6 +1,7 @@
 package finalProject;
 
 import GraphFinalProj.Digraph;
+import java.util.Stack;
 
 /*************************************************************************
  *  Compilation:  javac DirectedCycle.java
@@ -50,6 +51,7 @@ public class DirectedCycle {
     private boolean[] onStack;       // onStack[v] = is vertex on the stack?
     private Stack<Integer> cycle;    // directed cycle (or null if no such cycle)
 
+    
     /**
      * Determines whether the digraph <tt>G</tt> has a directed cycle and, if so,
      * finds such a cycle.
@@ -61,6 +63,8 @@ public class DirectedCycle {
         edgeTo  = new int[G.V()];
         for (int v = 0; v < G.V(); v++)
             if (!marked[v]) dfs(G, v);
+        
+  
     }
 
     // check that algorithm computes either the topological order or finds a directed cycle
