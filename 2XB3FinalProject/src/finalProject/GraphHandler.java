@@ -3,21 +3,9 @@ package finalProject;
  * @author Eric Le Fort
  * @version 01
  */
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public abstract class GraphHandler{
-
-	public static void main(){
-		Node[] data;
-		File file = new File("data/tinyDAG.txt");//TODO get file Location
-		try{
-			data = DataLoader.readData(file);
-		}catch(FileNotFoundException fnfe){
-			System.out.println("Unfortunately, the data file could not be located.");
-		}
-	}//main()
 
 	/**
 	 * Traces back the shortest path from the given node to determine the origin of where it received its
@@ -28,7 +16,7 @@ public abstract class GraphHandler{
 	 */
 	public static Node[] traceBackToOrigin(Node[] graph, int nodeID){
 		Node node = findNode(graph, nodeID);
-		
+		//TODO implement
 		return new Node[0];
 	}//traceBackToOrigin()
 
