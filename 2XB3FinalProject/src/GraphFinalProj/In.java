@@ -1,4 +1,4 @@
-package finalProject;
+package GraphFinalProj;
 
 /*************************************************************************
  *  Compilation:  javac In.java
