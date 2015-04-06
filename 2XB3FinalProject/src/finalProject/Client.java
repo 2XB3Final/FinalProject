@@ -67,7 +67,7 @@ public abstract class Client{
 		}
 		System.out.println();
 	}//printResults()
-
+	
 	/**
 	 * Prompts the user for the path to the file they wish to analyze.
 	 * @return The File made using the user input.
@@ -76,9 +76,9 @@ public abstract class Client{
 	private static File getFile(){
 		Scanner in = new Scanner(System.in);
 		System.out.println("Please enter the path to the file you would like analyzed.");
-		return new File("data/tinyDAG.txt");	//in.nextLine());//TODO insert this general case instead.
+		return new File(in.nextLine());
 	}//getFile()
-
+	
 	/**
 	 * Prompts the user to enter a value between 1 and 7.
 	 * 1 - Find the original source of the information.
@@ -114,6 +114,30 @@ public abstract class Client{
 		}
 		return -1;											//Value is outside of the accepted range.
 	}//getChoice()
+	
+	/**
+	 * Prompts the user for the ID of the Node from which they wish to start from.
+	 * @return An int representing the nodeID.
+	 */
+	@SuppressWarnings("resource")							//We should never close System.in.
+	private static int getNodeID(){
+		Scanner in = new Scanner(System.in);
+		int nodeID;
+		System.out.println("Please enter the ID of the Node you're starting from.");
+
+		try{
+			nodeID = in.nextInt();
+		}catch(InputMismatchException ime){					//User didn't enter a number.
+			System.out.println("An integer must be entered for the node's ID value.\n");
+			return -1;
+		}	
+
+		if(nodeID > -1){
+			return nodeID;									//Valid nodeID!
+		}
+		System.out.println("The node ID cannot be negative.\n");
+		return -1;											//The Node entered was a negative number.
+	}//getNodeID()
 
 	/**
 	 * Prompts the user for the ID of the Node from which they wish to start from.

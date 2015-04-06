@@ -4,6 +4,7 @@ package finalProject;
  * @version 01
  */
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public abstract class GraphHandler{
 
@@ -98,16 +99,27 @@ public abstract class GraphHandler{
 	/**
 	 * Searches for a Node with the specified ID value and returns a Node with a matching nodeID.
 	 * If no such Node is located, null will be returned.
+	 * Assumes array passed in is sorted.
 	 * @param graph
 	 * @param nodeID
 	 * @return The Node with the given nodeID or null if it can't be found.
 	 */
 	public static Node findNode(Node[] graph, int nodeID){
-		//TODO implement
-		//STEP 1: Binary search nodes to find nodeID
-		//STEP 2: If we find the node with the correct ID at any point, return it.
-		//Step 3: If node hasn't been located, return null.
-		return null;
+		if(graph.length == 1){							//One element left to check.
+			if(graph[0].getID() != nodeID){				//Not found..
+				return null;
+			}
+			return graph[0];							//We found it!
+		}
+		
+		if(graph[graph.length / 2].getID() == nodeID){	//We found it!
+			return graph[graph.length / 2];
+		}
+		if(graph[graph.length / 2].getID() > nodeID){
+			return findNode(Arrays.copyOfRange(graph, 0, graph.length / 2), nodeID);
+		}else{
+			return findNode(Arrays.copyOfRange(graph, graph.length / 2, graph.length), nodeID);
+		}
 	}//findNode()
 	
 }//GraphHandler
