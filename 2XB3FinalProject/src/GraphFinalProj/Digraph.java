@@ -26,6 +26,7 @@ package GraphFinalProj;
  *  
  *************************************************************************/
 
+import java.util.Collection;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Stack;
@@ -220,5 +221,15 @@ public class Digraph{
         Digraph G = new Digraph(in);
         System.out.println(G);
     }//main()
+
+	public Bag<Integer> getAdjList(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Bag<Integer> getToList(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }//Digraph
