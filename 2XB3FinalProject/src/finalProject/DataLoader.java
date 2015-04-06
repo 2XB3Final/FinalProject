@@ -20,7 +20,7 @@ public abstract class DataLoader{
 
 	/**
 	 * Reads in from the data file in order to initialize the array of Nodes. The data will be of the form:
-	 * fromNodeId	toNodeId
+	 * fromNodeId + \t + toNodeId
 	 * @param file
 	 * @return The array of nodes that will store the data for the program.
 	 * @throws FileNotFoundException
@@ -46,7 +46,6 @@ public abstract class DataLoader{
 			}else if(current.length() > 0){									//Only one Node, add that one.
 				tempNodeData.add(current);
 			}
-
 		}
 		fileReader.close();
 
@@ -67,6 +66,7 @@ public abstract class DataLoader{
 		}catch(InputMismatchException ime){
 			System.out.println("The file's formatting is corrupted.");
 		}
+		System.out.println("File read successfully.");
 		
 		nodeData = null;													//This array isn't needed anymore.
 		graph = tempGraph.toArray(new Node[0]);								//Removes the temporary ArrayList.
@@ -81,7 +81,7 @@ public abstract class DataLoader{
 				from = edgeData[i];
 				to = "NOT A NUMBER";
 			}
-			if(current != null && !current.equals(from)){								//Current holds previous from value.
+			if(current != null && !current.equals(from) || currentFromNode == null){	//Current holds previous from value.
 				currentFromNode = GraphHandler.findNode(graph, Integer.parseInt(from));	//Need to find "from" Node.
 			}
 			try{
@@ -95,8 +95,7 @@ public abstract class DataLoader{
 		}
 		
 		for(int i = 0; i < graph.length; i++){											//Sorts the children of each Node.
-			graph[i].trimArrays();
-			mergeSort(graph[i].getChildren());
+			graph[i].trimAndSortArrays();
 		}
 
 		return graph;
@@ -160,11 +159,15 @@ public abstract class DataLoader{
 	 */
 	private static Node[] merge(Node[] x){
 		Node[] left, right;
+		Node temp;
 		int currentL = 0, currentR = 0;
 
 		if(x.length == 2){						//Base cases.
 			if(x[0].compareTo(x[1]) > 0){
-				return new Node[] {x[1], x[0]};
+				temp = x[0];
+				x[0] = x[1];
+				x[1] = temp;
+				return x;
 			}else{
 				return x;
 			}
