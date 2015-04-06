@@ -71,7 +71,7 @@ public class DirectedCycle {
     private void dfs(Digraph G, int v) {
         onStack[v] = true;
         marked[v] = true;
-        for (int w : G.adj(v)) {
+        for (int w : G.getAdjList(v)) {
 
             // short circuit if directed cycle found
             if (cycle != null) return;
