@@ -10,16 +10,16 @@ import java.util.Stack;
 // ALGORITHM ADAPTED FROM SEDGEWICK & WAYNE, ALGORITHMS, 4TH EDITION
 
 public class Digraph{
+	// total number of vertices
     private final int V;
+    // total number of edges
     private int E;
+    // list of all vertices that a given vertex points to, indexed by vertex
     private Bag<Integer>[] adj;
+    // list of all vertices that point to a given vertex, indexed by vertex
     private Bag<Integer>[] to;
     
-    /**
-     * Initializes an empty digraph with <em>V</em> vertices.
-     * @param V the number of vertices
-     * @throws java.lang.IllegalArgumentException if V < 0
-     */
+    // Constructs empty digraph with V vertices
     public Digraph(int V){
         if (V < 0) throw new IllegalArgumentException("Number of vertices in a Digraph must be nonnegative");
         this.V = V;
@@ -48,6 +48,7 @@ public class Digraph{
 
     	try{
     		this.V = fileInput.nextInt();
+//    		System.out.println(V);													// TESTING
     		if(V < 0) {
     			fileInput.close();
     			throw new IllegalArgumentException("Incorrect number of vertices (cannot be negative)");
@@ -57,7 +58,8 @@ public class Digraph{
     		to = (Bag<Integer>[]) new Bag[V];
 
     		buildDigraph();
-    		this.E = fileInput.nextInt();
+    		int E = fileInput.nextInt();
+//   		System.out.println(E);													// TESTING
     		if(E < 0) {
     			fileInput.close();
     			throw new IllegalArgumentException("Incorrect number of edges (cannot be negative)");
@@ -66,6 +68,8 @@ public class Digraph{
     		for(int i = 0; i < E; i++) {
     			int v = fileInput.nextInt();
     			int w = fileInput.nextInt();
+//    			System.out.println(i);												// TESTING
+//    			System.out.println(v + " -> " + w);									// TESTING
     			addEdge(v,w);
     		}
 
@@ -150,11 +154,9 @@ public class Digraph{
                 R.addEdge(w, v);
             }
         }
-        return R;
-        
+        return R;        
     }
 
-   
     // Returns a string representation of the graph (for testing purposes)
     @Override
     public String toString(){
@@ -162,10 +164,11 @@ public class Digraph{
         String NEWLINE = System.getProperty("line.separator");
         s.append(V + " vertices, " + E + " edges " + NEWLINE);
         for(int v = 0; v < V; v++){
-            s.append(String.format("%d: ", v));
+            s.append(String.format("%d: points to: ", v));
             for(int w : adj[v]){
                 s.append(String.format("%d ", w));
             }
+            s.append(" // comes from: ");
             for(int x : to[v]){
                 s.append(String.format("%d ", x));
             }
@@ -176,9 +179,8 @@ public class Digraph{
 
    
     public static void main(String[] args){
-
+    	Digraph gtest = new Digraph("data/tinyDAG.txt");
+    	System.out.println(gtest.toString());
     }
-
-	
 
 }
