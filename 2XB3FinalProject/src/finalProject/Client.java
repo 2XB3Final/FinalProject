@@ -139,28 +139,4 @@ public abstract class Client{
 		return -1;											//The Node entered was a negative number.
 	}//getNodeID()
 
-	/**
-	 * Prompts the user for the ID of the Node from which they wish to start from.
-	 * @return An int representing the nodeID.
-	 */
-	@SuppressWarnings("resource")							//We should never close System.in.
-	private static int getNodeID(){
-		Scanner in = new Scanner(System.in);
-		int nodeID;
-		System.out.println("Please enter the ID of the Node you're starting from.");
-
-		try{
-			nodeID = in.nextInt();
-		}catch(InputMismatchException ime){					//User didn't enter a number.
-			System.out.println("An integer must be entered for the node's ID value.\n");
-			return -1;
-		}	
-
-		if(nodeID > 0){
-			return nodeID;									//Valid nodeID!
-		}
-		System.out.println("The node ID cannot be negative.\n");
-		return -1;											//The Node entered was a negative number.
-	}//getNodeID()
-
 }//Client
