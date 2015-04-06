@@ -74,7 +74,7 @@ public class Node{
 	 * Removes null entries in the children and parent arrays.
 	 * Note: this method is liable to increase computation down the road as the arrays will be full.
 	 */
-	public void trimArrays(){
+	public void trimAndSortArrays(){
 		Node[] tempParents = new Node[numParents], tempChildren = new Node[numChildren];
 
 		for(int i = 0; i < numParents; i++){
@@ -86,6 +86,9 @@ public class Node{
 		
 		parents = tempParents;
 		children = tempChildren;
+		
+		DataLoader.mergeSort(parents);
+		DataLoader.mergeSort(children);
 	}//trimArrays()
 
 	/**
