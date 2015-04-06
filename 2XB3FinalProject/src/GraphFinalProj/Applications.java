@@ -17,4 +17,12 @@ public class Applications {
     	}
     	return sources;
     }
+    
+    public Bag<Integer> told(Digraph G, int i) {
+    	return G.getAdjList(i);
+    }
+    
+    public Bag<Integer> heard(Digraph G, int i) {
+    	return G.getToList(i);
+    }
 }
