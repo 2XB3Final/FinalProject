@@ -3,48 +3,8 @@ package GraphFinalProj;
 import GraphFinalProj.Digraph;
 import java.util.Stack;
 
-/*************************************************************************
- *  Compilation:  javac DirectedCycle.java
- *  Execution:    java DirectedCycle < input.txt
- *  Dependencies: Digraph.java Stack.java StdOut.java In.java
- *  Data files:   http://algs4.cs.princeton.edu/42directed/tinyDG.txt
- *                http://algs4.cs.princeton.edu/42directed/tinyDAG.txt
- *
- *  Finds a directed cycle in a digraph.
- *  Runs in O(E + V) time.
- *
- *  % java DirectedCycle tinyDG.txt 
- *  Cycle: 3 5 4 3 
- *
- *  %  java DirectedCycle tinyDAG.txt 
- *  No cycle
- *
- *************************************************************************/
+//ALGORITHM ADAPTED FROM SEDGEWICK & WAYNE, ALGORITHMS, 4TH EDITION
 
-/**
- *  The <tt>DirectedCycle</tt> class represents a data type for 
- *  determining whether a digraph has a directed cycle.
- *  The <em>hasCycle</em> operation determines whether the digraph has
- *  a directed cycle and, and of so, the <em>cycle</em> operation
- *  returns one.
- *  <p>
- *  This implementation uses depth-first search.
- *  The constructor takes time proportional to <em>V</em> + <em>E</em>
- *  (in the worst case),
- *  where <em>V</em> is the number of vertices and <em>E</em> is the number of edges.
- *  Afterwards, the <em>hasCycle</em> operation takes constant time;
- *  the <em>cycle</em> operation takes time proportional
- *  to the length of the cycle.
- *  <p>
- *  See {@link Topological} to compute a topological order if the
- *  digraph is acyclic.
- *  <p>
- *  For additional documentation, see <a href="/algs4/42digraph">Section 4.2</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
- *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
- */
 public class DirectedCycle {
     private boolean[] marked;        // marked[v] = has vertex v been marked?
     private int[] edgeTo;            // edgeTo[v] = previous vertex on path to v

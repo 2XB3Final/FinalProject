@@ -2,6 +2,8 @@ package GraphFinalProj;
 
 import java.util.ArrayList;
 
+//ALGORITHM ADAPTED FROM SEDGEWICK & WAYNE, ALGORITHMS, 4TH EDITION
+
 public class BinarySearch {
 
     /**
