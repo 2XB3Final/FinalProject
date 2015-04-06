@@ -2,6 +2,7 @@ package GraphFinalProj;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -20,6 +21,7 @@ public class Digraph{
     private Bag<Integer>[] adj;
     // list of all vertices that point to a given vertex, indexed by vertex
     private Bag<Integer>[] to;
+    private ArrayList<Integer>[] to2;
     
     // Constructs empty digraph with V vertices
     public Digraph(int V){
@@ -58,6 +60,7 @@ public class Digraph{
 
     		adj = (Bag<Integer>[]) new Bag[V];
     		to = (Bag<Integer>[]) new Bag[V];
+    		to2 = (ArrayList<Integer>[]) new ArrayList[V];
 
     		buildDigraph();
     		int E = fileInput.nextInt();
@@ -88,6 +91,7 @@ public class Digraph{
 		for(int v = 0; v < V; v++) {
 			adj[v]= new Bag<Integer>();
 			to[v] = new Bag<Integer>();
+			to2[v] = new ArrayList<Integer>();
 		}
 
 	}
@@ -134,12 +138,17 @@ public class Digraph{
 	public Bag<Integer> getToList(int i) {
 		return to[i];
 	}
+	
+	public ArrayList<Integer> getTo2List(int i) {
+		return to2[i];
+	}
 
   
 	// Adds a directed edge v-> to the digraph
     public void addEdge(int v, int w){
         adj[v].add(w);
         to[w].add(v);
+        to2[w].add(v);
         E++;
     }
 

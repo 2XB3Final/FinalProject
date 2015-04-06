@@ -3,47 +3,9 @@ package GraphFinalProj;
 import java.util.LinkedList;
 import java.util.Stack;
 
-/*************************************************************************
- *  Compilation:  javac BreadthFirstDirectedPaths.java
- *  Execution:    java BreadthFirstDirectedPaths V E
- *  Dependencies: Digraph.java Queue.java Stack.java
- *
- *  Run breadth first search on a digraph.
- *  Runs in O(E + V) time.
- *
- *  % java BreadthFirstDirectedPaths tinyDG.txt 3
- *  3 to 0 (2):  3->2->0
- *  3 to 1 (3):  3->2->0->1
- *  3 to 2 (1):  3->2
- *  3 to 3 (0):  3
- *  3 to 4 (2):  3->5->4
- *  3 to 5 (1):  3->5
- *  3 to 6 (-):  not connected
- *  3 to 7 (-):  not connected
- *  3 to 8 (-):  not connected
- *  3 to 9 (-):  not connected
- *  3 to 10 (-):  not connected
- *  3 to 11 (-):  not connected
- *  3 to 12 (-):  not connected
- *
- *************************************************************************/
+//ALGORITHM ADAPTED FROM SEDGEWICK & WAYNE, ALGORITHMS, 4TH EDITION
 
-/**
- *  The <tt>BreadthDirectedFirstPaths</tt> class represents a data type for finding
- *  shortest paths (number of edges) from a source vertex <em>s</em>
- *  (or set of source vertices) to every other vertex in the digraph.
- *  <p>
- *  This implementation uses breadth-first search.
- *  The constructor takes time proportional to <em>V</em> + <em>E</em>,
- *  where <em>V</em> is the number of vertices and <em>E</em> is the number of edges.
- *  It uses extra space (not including the digraph) proportional to <em>V</em>.
- *  <p>
- *  For additional documentation, see <a href="/algs4/41graph">Section 4.1</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
- *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
- */
+
 public class BreadthFirstDirectedPaths {
     private static final int INFINITY = Integer.MAX_VALUE;
     private boolean[] marked;  // marked[v] = is there an s->v path?
