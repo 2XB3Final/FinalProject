@@ -41,7 +41,7 @@ public class Applications {
      * @return the ordered list of all the people that have told the rumour
      */
     public ArrayList<Integer> told(Digraph G) {
-    	for (int i = 0; i < G.getAdjList().length(); i++) {		// iterate through the adjacency list
+    	for (int i = 0; i < G.getAdjList().length; i++) {		// iterate through the adjacency list
     		if (!G.getAdjList(i).isEmpty()) {					// if an element's adjacency list is not
     			told.add(i);									// empty, it has told the rumour, add it
     		}													// to the told list
@@ -63,7 +63,7 @@ public class Applications {
      * @return the ordered list of all the people that have heard the rumour
      */
     public ArrayList<Integer> heard(Digraph G) {
-    	for (int i = 0; i < G.getToList().length(); i++) {		// iterate through the to list
+    	for (int i = 0; i < G.getToList().length; i++) {		// iterate through the to list
     		if (!G.getToList(i).isEmpty()) {					// if an element's to list is not
     			heard.add(i);									// empty, it has heard the rumour, add it
     		}													// to the heard list
@@ -83,5 +83,19 @@ public class Applications {
     		deadEnds.remove(-1);								// BinarySearch makes returns -1 to a
     	}														// search miss, need to remove them
     	return deadEnds;
+    }
+    
+    /**
+     * @param G
+     * @param i
+     * @return whether a given person is a spreader
+     */
+    public boolean isSpreader(Digraph G, int i) {
+    	if (told(G,i).isEmpty()) {								// if the adjacency list of i is
+    		return false;										// empty, then it hasn't told the
+    	}														// rumour, it's not a spreader
+    	else {
+    		return true;
+    	}
     }
 }
