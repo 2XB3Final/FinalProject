@@ -75,7 +75,7 @@ public class DepthFirstOrder {
     // run DFS in digraph G from vertex v and compute preorder/postorder
     private void dfs(Digraph G, int v) {
         marked[v] = true;
-        for (int w : G.adj(v)) {
+        for (int w : G.getAdjList(v)) {
             if (!marked[w]) {
                 dfs(G, w);
             }
