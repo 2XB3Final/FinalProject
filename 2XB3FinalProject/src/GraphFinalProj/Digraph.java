@@ -7,6 +7,8 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.Stack;
 
+import org.apache.commons.lang3.time.StopWatch;
+
 // ALGORITHM ADAPTED FROM SEDGEWICK & WAYNE, ALGORITHMS, 4TH EDITION
 
 public class Digraph{
@@ -179,8 +181,14 @@ public class Digraph{
 
    
     public static void main(String[] args){
+    	StopWatch watch = new StopWatch();
+    	watch.start();
     	Digraph gtest = new Digraph("data/tinyDAG.txt");
+    	watch.stop();
     	System.out.println(gtest.toString());
+    	System.out.println("Time: " + watch.getTime() + " ms");
+    	watch.reset();
+ 
     }
 
 }
