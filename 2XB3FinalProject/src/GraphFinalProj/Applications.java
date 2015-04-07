@@ -55,7 +55,7 @@ public class Applications {
      * @param i
      * @return the to list for input i
      */
-    public Bag<Integer> heard(Digraph G, int i) {
+    public ArrayList<Integer> heard(Digraph G, int i) {
     	return G.getToList(i);
     }
     
@@ -115,7 +115,7 @@ public class Applications {
 
     	BreadthFirstDirectedPaths paths = new BreadthFirstDirectedPaths(G,srcs);
     	// get a list of all the vertices that point to vertex
-    	ArrayList<Integer> toList = G.getTo2List(vertex);
+    	ArrayList<Integer> toList = G.getToList(vertex);
     	System.out.println("the toList: " + toList.toString());										// TESTING
     	// if no vertices point to vertex, then it never received the information at all
     	if (toList.isEmpty()) return null;

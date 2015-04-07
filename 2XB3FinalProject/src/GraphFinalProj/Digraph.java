@@ -20,8 +20,8 @@ public class Digraph{
     // list of all vertices that a given vertex points to, indexed by vertex
     private Bag<Integer>[] adj;
     // list of all vertices that point to a given vertex, indexed by vertex
-    private Bag<Integer>[] to;
-    private ArrayList<Integer>[] to2;
+//    private Bag<Integer>[] to;
+    private ArrayList<Integer>[] to;
     
     // Constructs empty digraph with V vertices
     public Digraph(int V){
@@ -59,8 +59,8 @@ public class Digraph{
     		}
 
     		adj = (Bag<Integer>[]) new Bag[V];
-    		to = (Bag<Integer>[]) new Bag[V];
-    		to2 = (ArrayList<Integer>[]) new ArrayList[V];
+//    		to = (Bag<Integer>[]) new Bag[V];
+    		to = (ArrayList<Integer>[]) new ArrayList[V];
 
     		buildDigraph();
     		int E = fileInput.nextInt();
@@ -90,8 +90,8 @@ public class Digraph{
 		adj=(Bag<Integer>[])new Bag[V];
 		for(int v = 0; v < V; v++) {
 			adj[v]= new Bag<Integer>();
-			to[v] = new Bag<Integer>();
-			to2[v] = new ArrayList<Integer>();
+//			to[v] = new Bag<Integer>();
+			to[v] = new ArrayList<Integer>();
 		}
 
 	}
@@ -130,17 +130,17 @@ public class Digraph{
 	}
     
     // Gets the to list (for all vertices)
-    public Bag<Integer>[] getToList() {
+    public ArrayList<Integer>[] getToList() {
     	return to;
     }
 
-    // Gets the to list for a specific vertex
-	public Bag<Integer> getToList(int i) {
-		return to[i];
-	}
+//    // Gets the to list for a specific vertex
+//	public Bag<Integer> getToList(int i) {
+//		return to[i];
+//	}
 	
-	public ArrayList<Integer> getTo2List(int i) {
-		return to2[i];
+	public ArrayList<Integer> getToList(int i) {
+		return to[i];
 	}
 
   
@@ -148,7 +148,7 @@ public class Digraph{
     public void addEdge(int v, int w){
         adj[v].add(w);
         to[w].add(v);
-        to2[w].add(v);
+        to[w].add(v);
         E++;
     }
 
