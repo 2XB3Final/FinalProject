@@ -5,9 +5,9 @@ import java.util.Stack;
 
 public class Applications {
     private static ArrayList<Integer> sources = new ArrayList();
-    private ArrayList<Integer> told = new ArrayList();
-    private ArrayList<Integer> heard = new ArrayList();
-    private ArrayList<Integer> deadEnds = new ArrayList();
+    private static ArrayList<Integer> told = new ArrayList();
+    private static ArrayList<Integer> heard = new ArrayList();
+    private static ArrayList<Integer> deadEnds = new ArrayList();
     
     /**
      * Find all the sources by doing reverse postorder on the input graph
@@ -31,7 +31,7 @@ public class Applications {
      * @param i
      * @return the adjacency list for input i
      */
-    public Bag<Integer> told(Digraph G, int i) {
+    public static Bag<Integer> told(Digraph G, int i) {
     	return G.getAdjList(i);
     }
     
@@ -39,7 +39,7 @@ public class Applications {
      * @param G
      * @return the ordered list of all the people that have told the rumour
      */
-    public ArrayList<Integer> told(Digraph G) {
+    public static ArrayList<Integer> told(Digraph G) {
     	for (int i = 0; i < G.getAdjList().length; i++) {		// iterate through the adjacency list
     		if (!G.getAdjList(i).isEmpty()) {					// if an element's adjacency list is not
     			told.add(i);									// empty, it has told the rumour, add it
@@ -53,7 +53,7 @@ public class Applications {
      * @param i
      * @return the to list for input i
      */
-    public ArrayList<Integer> heard(Digraph G, int i) {
+    public static ArrayList<Integer> heard(Digraph G, int i) {
     	return G.getToList(i);
     }
     
@@ -61,7 +61,7 @@ public class Applications {
      * @param G
      * @return the ordered list of all the people that have heard the rumour
      */
-    public ArrayList<Integer> heard(Digraph G) {
+    public static ArrayList<Integer> heard(Digraph G) {
     	for (int i = 0; i < G.getToList().length; i++) {		// iterate through the to list
     		if (!G.getToList(i).isEmpty()) {					// if an element's to list is not
     			heard.add(i);									// empty, it has heard the rumour, add it
@@ -74,7 +74,7 @@ public class Applications {
      * @param G
      * @return the ordered list of all the people that have heard the rumour but did not spread it
      */
-    public ArrayList<Integer> deadEnds(Digraph G) {
+    public static ArrayList<Integer> deadEnds(Digraph G) {
     	for (int i = 0; i < heard.size(); i++) {				// iterate every element in the heard
     		deadEnds.add(BinarySearch.rank(heard.get(i), told));// list through the told list, if it's
     	}														// in heard but not told, that means 
@@ -89,7 +89,7 @@ public class Applications {
      * @param i
      * @return whether a given person is a spreader
      */
-    public boolean isSpreader(Digraph G, int i) {
+    public static boolean isSpreader(Digraph G, int i) {
     	if (told(G,i).isEmpty()) {								// if the adjacency list of i is
     		return false;										// empty, then it hasn't told the
     	}														// rumour, it's not a spreader
@@ -151,14 +151,21 @@ public class Applications {
     }
     
     public static void main (String[] args) {
-    	Digraph gtest = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
+    	Digraph gtest = new Digraph("data/tinyDAG.txt");
     	
     	ArrayList<Integer> sources = getSource(gtest);
-    	System.out.println(sources.toString());
+    	System.out.println("sources: " + sources.toString());
 //    	sources = new ArrayList();																	// TESTING
 //    	sources.add(2);																				// TESTING
 //    	sources.add(8);																				// TESTING
 //    	ArrayList tester = heardFromFirst(gtest,12);
 //    	System.out.println(tester.toString());
+    	
+    	System.out.println("dead ends: " + deadEnds(gtest));
+    	
+    	System.out.println("people who heard it: " + heard(gtest));
+    	
+    	System.out.println("people who told it: " + told(gtest));
+
     }
 }
