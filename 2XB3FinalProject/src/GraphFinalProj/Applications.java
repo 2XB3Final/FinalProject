@@ -1,7 +1,6 @@
 package GraphFinalProj;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Stack;
 
 public class Applications {
@@ -20,10 +19,9 @@ public class Applications {
     	Stack<Integer> revPost = dfs.reversePost();			// run reverse postorder on dfs
     	while (!revPost.empty()) {							// while the stack is not empty
     		if (G.getToList(revPost.peek()).isEmpty()) {	// peek at the next element on the stack, check its ToList
-    														// if it's empty, i.e. there isn't a node pointing to it
-    			sources.add(revPost.peek());				// it has to be a source, therefore, add it to the arraylist
-    			revPost.pop();								// pop it off the stack, and recur through
-    		}
+    			sources.add(revPost.peek());				// if it's empty, i.e. there isn't a node pointing to it
+    		}												// it has to be a source, therefore, add it to the arraylist
+    		revPost.pop();									// pop it off the stack, and recur through
     	}
     	return sources;
     }
@@ -55,7 +53,7 @@ public class Applications {
      * @param i
      * @return the to list for input i
      */
-    public Bag<Integer> heard(Digraph G, int i) {
+    public ArrayList<Integer> heard(Digraph G, int i) {
     	return G.getToList(i);
     }
     
@@ -115,7 +113,7 @@ public class Applications {
 
     	BreadthFirstDirectedPaths paths = new BreadthFirstDirectedPaths(G,srcs);
     	// get a list of all the vertices that point to vertex
-    	ArrayList<Integer> toList = G.getTo2List(vertex);
+    	ArrayList<Integer> toList = G.getToList(vertex);
     	System.out.println("the toList: " + toList.toString());										// TESTING
     	// if no vertices point to vertex, then it never received the information at all
     	if (toList.isEmpty()) return null;
@@ -153,17 +151,14 @@ public class Applications {
     }
     
     public static void main (String[] args) {
-    	Digraph gtest = new Digraph("data/tinyDAG.txt");
+    	Digraph gtest = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
     	
-    	// NOTE: getSource METHOD GIVES ERRORS!
-//   	sources = getSource(gtest);
-//    	System.out.println(sources.toString());
-    	sources = new ArrayList();																	// TESTING
-    	sources.add(2);																				// TESTING
-    	sources.add(8);																				// TESTING
-    	ArrayList tester = heardFromFirst(gtest,12);
-    	System.out.println(tester.toString());
+    	ArrayList<Integer> sources = getSource(gtest);
+    	System.out.println(sources.toString());
+//    	sources = new ArrayList();																	// TESTING
+//    	sources.add(2);																				// TESTING
+//    	sources.add(8);																				// TESTING
+//    	ArrayList tester = heardFromFirst(gtest,12);
+//    	System.out.println(tester.toString());
     }
-    
-  
 }

@@ -20,8 +20,8 @@ public class Digraph{
     // list of all vertices that a given vertex points to, indexed by vertex
     private Bag<Integer>[] adj;
     // list of all vertices that point to a given vertex, indexed by vertex
-    private Bag<Integer>[] to;
-    private ArrayList<Integer>[] to2;
+//    private Bag<Integer>[] to;
+    private ArrayList<Integer>[] to;
     
     // Constructs empty digraph with V vertices
     public Digraph(int V){
@@ -30,8 +30,8 @@ public class Digraph{
         this.E = 0;
         
         adj = (Bag<Integer>[]) new Bag[V];
-		to = (Bag<Integer>[]) new Bag[V];
-		to2 = (ArrayList<Integer>[]) new ArrayList[V];
+//		to = (Bag<Integer>[]) new Bag[V];
+		to = (ArrayList<Integer>[]) new ArrayList[V];
         buildDigraph();
     }
     
@@ -60,8 +60,8 @@ public class Digraph{
     		}
 
     		adj = (Bag<Integer>[]) new Bag[V];
-    		to = (Bag<Integer>[]) new Bag[V];
-    		to2 = (ArrayList<Integer>[]) new ArrayList[V];
+//    		to = (Bag<Integer>[]) new Bag[V];
+    		to = (ArrayList<Integer>[]) new ArrayList[V];
 
     		buildDigraph();
     		int E = fileInput.nextInt();
@@ -91,8 +91,8 @@ public class Digraph{
 		adj=(Bag<Integer>[])new Bag[V];
 		for(int v = 0; v < V; v++) {
 			adj[v]= new Bag<Integer>();
-			to[v] = new Bag<Integer>();
-			to2[v] = new ArrayList<Integer>();
+//			to[v] = new Bag<Integer>();
+			to[v] = new ArrayList<Integer>();
 		}
 
 	}
@@ -111,8 +111,7 @@ public class Digraph{
                 adj[v].add(w);
             }
         }
-    }
-        
+    } 
   
     // Gets the number of vertices
     public int V(){ return V; }
@@ -131,25 +130,24 @@ public class Digraph{
 	}
     
     // Gets the to list (for all vertices)
-    public Bag<Integer>[] getToList() {
+    public ArrayList<Integer>[] getToList() {
     	return to;
     }
 
-    // Gets the to list for a specific vertex
-	public Bag<Integer> getToList(int i) {
+//    // Gets the to list for a specific vertex
+//	public Bag<Integer> getToList(int i) {
+//		return to[i];
+//	}
+	
+	public ArrayList<Integer> getToList(int i) {
 		return to[i];
 	}
-	
-	public ArrayList<Integer> getTo2List(int i) {
-		return to2[i];
-	}
 
-  
 	// Adds a directed edge v-> to the digraph
     public void addEdge(int v, int w){
         adj[v].add(w);
         to[w].add(v);
-        to2[w].add(v);
+        to[w].add(v);
         E++;
     }
 
@@ -189,16 +187,13 @@ public class Digraph{
         return s.toString();
     }
 
-   
     public static void main(String[] args){
     	StopWatch watch = new StopWatch();
     	watch.start();
-    	Digraph gtest = new Digraph("data/tinyDAG.txt");
+    	Digraph gtest = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
     	watch.stop();
     	System.out.println(gtest.toString());
     	System.out.println("Time: " + watch.getTime() + " ms");
     	watch.reset();
- 
     }
-
 }

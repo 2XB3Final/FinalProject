@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 import org.apache.commons.lang3.time.StopWatch;
 
+//ALGORITHM ADAPTED FROM SEDGEWICK & WAYNE, ALGORITHMS, 4TH EDITION
+
 public class RandomIntDigraph {
 	private ST<Integer, Integer> st;  // name-integer -> index
 	private Integer[] keys;           // index  -> name-integer
@@ -138,7 +140,7 @@ public class RandomIntDigraph {
 	public static void main(String[] args) {
 		StopWatch watch = new StopWatch();
     	watch.start();
-    	RandomIntDigraph gtest = new RandomIntDigraph("data/cit-HepPh.txt");
+    	RandomIntDigraph gtest = new RandomIntDigraph("2XB3FinalProject/data/cit-HepPh.txt");
     	watch.stop();
     	//System.out.println(gtest.toString());
     	System.out.println("Time: " + watch.getTime() + " ms");
