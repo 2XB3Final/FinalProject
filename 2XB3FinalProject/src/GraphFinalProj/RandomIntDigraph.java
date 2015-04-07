@@ -138,7 +138,7 @@ public class RandomIntDigraph {
 	public static void main(String[] args) {
 		StopWatch watch = new StopWatch();
     	watch.start();
-    	RandomIntDigraph gtest = new RandomIntDigraph("data/cit-HepPh.txt");
+    	RandomIntDigraph gtest = new RandomIntDigraph("2XB3FinalProject/data/cit-HepPh.txt");
     	watch.stop();
     	//System.out.println(gtest.toString());
     	System.out.println("Time: " + watch.getTime() + " ms");

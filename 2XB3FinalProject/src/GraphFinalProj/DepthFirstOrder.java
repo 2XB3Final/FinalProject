@@ -1,14 +1,13 @@
 package GraphFinalProj;
 
-import java.util.Queue;
 import java.util.Stack;
 
 // ALGORITHM ADAPTED FROM SEDGEWICK & WAYNE, ALGORITHMS, 4TH EDITION
 
 public class DepthFirstOrder {
-    private boolean[] marked;          // marked[v] = has v been marked in dfs?
+	private boolean[] marked;          // marked[v] = has v been marked in dfs?
     private int[] post;                // post[v]   = postorder number of v
-    private Queue<Integer> postorder;  // vertices in postorder
+    private Queue<Integer> postorder = new Queue<Integer>();  // vertices in postorder
     private int postCounter;           // counter for postorder numbering
 
     /**
@@ -30,7 +29,7 @@ public class DepthFirstOrder {
                 dfs(G, w);
             }
         }
-        postorder.add(v);
+        postorder.enqueue(v);
         post[v] = postCounter++;
     }
 
@@ -53,7 +52,7 @@ public class DepthFirstOrder {
 
     /**
      * Returns the vertices in reverse postorder.
-     * @return the vertices in reverse postorder, as an iterable of vertices
+     * @return the vertices in reverse postorder, as an stack of vertices
      */
     public Stack<Integer> reversePost() {
         Stack<Integer> reverse = new Stack<Integer>();
@@ -61,4 +60,12 @@ public class DepthFirstOrder {
             reverse.push(v);
         return reverse;
     }
+    
+//    public static void main (String[] args) {
+//    	Digraph G = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
+//    	DepthFirstOrder dfs = new DepthFirstOrder(G);		// run dfs on the input graph G
+//    	for (int v: dfs.postorder) {
+//    		System.out.println(v);
+//    	}
+//    }
 }

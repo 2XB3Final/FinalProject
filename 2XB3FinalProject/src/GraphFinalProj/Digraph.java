@@ -30,8 +30,8 @@ public class Digraph{
         this.E = 0;
         
         adj = (Bag<Integer>[]) new Bag[V];
-		to = (Bag<Integer>[]) new Bag[V];
-		to2 = (ArrayList<Integer>[]) new ArrayList[V];
+//		to = (Bag<Integer>[]) new Bag[V];
+		to = (ArrayList<Integer>[]) new ArrayList[V];
         buildDigraph();
     }
     
@@ -111,8 +111,7 @@ public class Digraph{
                 adj[v].add(w);
             }
         }
-    }
-        
+    } 
   
     // Gets the number of vertices
     public int V(){ return V; }
@@ -144,7 +143,6 @@ public class Digraph{
 		return to[i];
 	}
 
-  
 	// Adds a directed edge v-> to the digraph
     public void addEdge(int v, int w){
         adj[v].add(w);
@@ -189,16 +187,13 @@ public class Digraph{
         return s.toString();
     }
 
-   
     public static void main(String[] args){
     	StopWatch watch = new StopWatch();
     	watch.start();
-    	Digraph gtest = new Digraph("data/tinyDAG.txt");
+    	Digraph gtest = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
     	watch.stop();
     	System.out.println(gtest.toString());
     	System.out.println("Time: " + watch.getTime() + " ms");
     	watch.reset();
- 
     }
-
 }
