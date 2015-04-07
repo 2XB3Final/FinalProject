@@ -3,6 +3,8 @@ package GraphFinalProj;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+//ALGORITHM ADAPTED FROM SEDGEWICK & WAYNE, ALGORITHMS, 4TH EDITION
+
 public class Queue<Item> implements Iterable<Item> {
     private int N;               // number of elements on queue
     private Node<Item> first;    // beginning of queue
@@ -31,13 +33,13 @@ public class Queue<Item> implements Iterable<Item> {
         return first == null;
     }
 
-    /**
-     * Returns the number of items in this queue.
-     * @return the number of items in this queue
-     */
-    public int size() {
-        return N;     
-    }
+//    /**
+//     * Returns the number of items in this queue.
+//     * @return the number of items in this queue
+//     */
+//    public int size() {
+//        return N;     
+//    }
 
     /**
      * Returns the item least recently added to this queue.
@@ -63,30 +65,30 @@ public class Queue<Item> implements Iterable<Item> {
         N++;
     }
 
-    /**
-     * Removes and returns the item on this queue that was least recently added.
-     * @return the item on this queue that was least recently added
-     * @throws java.util.NoSuchElementException if this queue is empty
-     */
-    public Item dequeue() {
-        if (isEmpty()) throw new NoSuchElementException("Queue underflow");
-        Item item = first.item;
-        first = first.next;
-        N--;
-        if (isEmpty()) last = null;   // to avoid loitering
-        return item;
-    }
+//    /**
+//     * Removes and returns the item on this queue that was least recently added.
+//     * @return the item on this queue that was least recently added
+//     * @throws java.util.NoSuchElementException if this queue is empty
+//     */
+//    public Item dequeue() {
+//        if (isEmpty()) throw new NoSuchElementException("Queue underflow");
+//        Item item = first.item;
+//        first = first.next;
+//        N--;
+//        if (isEmpty()) last = null;   // to avoid loitering
+//        return item;
+//    }
 
-    /**
-     * Returns a string representation of this queue.
-     * @return the sequence of items in FIFO order, separated by spaces
-     */
-    public String toString() {
-        StringBuilder s = new StringBuilder();
-        for (Item item : this)
-            s.append(item + " ");
-        return s.toString();
-    } 
+//    /**
+//     * Returns a string representation of this queue.
+//     * @return the sequence of items in FIFO order, separated by spaces
+//     */
+//    public String toString() {
+//        StringBuilder s = new StringBuilder();
+//        for (Item item : this)
+//            s.append(item + " ");
+//        return s.toString();
+//    } 
 
     /**
      * Returns an iterator that iterates over the items in this queue in FIFO order.

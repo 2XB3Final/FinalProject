@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 import org.apache.commons.lang3.time.StopWatch;
 
+//ALGORITHM ADAPTED FROM SEDGEWICK & WAYNE, ALGORITHMS, 4TH EDITION
+
 public class RandomIntDigraph {
 	private ST<Integer, Integer> st;  // name-integer -> index
 	private Integer[] keys;           // index  -> name-integer
