@@ -154,7 +154,7 @@ public class Applications {
     		return true;
     	}
     }
-    
+        
     public static boolean isSpreader(RandomIntDigraph SymbolG, int i) {
     	int sequentialVertex = SymbolG.index(i);
     	if (told(SymbolG.G(),sequentialVertex).isEmpty()) {
@@ -162,6 +162,30 @@ public class Applications {
     	} else return true;
 
     }
+    
+    public static boolean isHearer(Digraph G, int i) {
+    	if (heard(G,i).isEmpty()) {
+    		return false;
+    	} else return true;
+    }
+    
+    public static boolean isHearer(RandomIntDigraph SymbolG, int i) {
+    	int sequentialVertex = SymbolG.index(i);
+    	if (heard(SymbolG.G(),sequentialVertex).isEmpty()) {
+    		return false;
+    	} else return true;
+
+    }
+    
+    public String roleOf(Digraph G, int i) {
+    	boolean spreader = isSpreader(G,i);
+    	boolean hearer = isHearer(G,i);
+    	if (spreader && hearer) return (i + " both heard and spread the information.");
+    	else if (spreader && !hearer) return (i + " spread the information.");
+    	else if (!spreader && hearer) return (i + " heard the information");
+    	else return (i + " was not involved.");
+    }
+
     
     /**
      * @param G the digraph
