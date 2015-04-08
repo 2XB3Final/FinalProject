@@ -16,6 +16,10 @@ public class RandomIntDigraph {
 	private Digraph G;
 	private int V;
 
+	/**
+	 * constructs a symbol table based on a file of input that have either strings or large numbers
+	 * @param filename
+	 */
 	public RandomIntDigraph(String filename) {
 		st = new ST<Integer, Integer>();
 		
@@ -106,6 +110,10 @@ public class RandomIntDigraph {
     	
 	}
 	
+	/**
+	 * returns the keys of the digraph
+	 * @return array keys
+	 */
 	public Integer[] getKeys() {
 		return keys;
 	}
@@ -146,7 +154,6 @@ public class RandomIntDigraph {
         return G;
     }
 	
-	
 	public static void main(String[] args) {
 		StopWatch watch = new StopWatch();
     	watch.start();
@@ -155,7 +162,5 @@ public class RandomIntDigraph {
     	//System.out.println(gtest.toString());
     	System.out.println("Time: " + watch.getTime() + " ms");
     	watch.reset();
-
 	}
-
 }

@@ -8,8 +8,8 @@ public class InsertionX {
     private InsertionX() { }
 
     /**
-     * Rearranges the array in ascending order, using the natural order.
-     * @param a the array to be sorted
+     * Rearranges the ArrayList in ascending order, using the natural order.
+     * @param a the ArrayList to be sorted
      * @return 
      */
     public static ArrayList<Integer> sort(ArrayList<Integer> a) {
@@ -40,8 +40,8 @@ public class InsertionX {
     private static boolean less(int v, int w) {
         return v < w;
     }
-        
-    // exchange a[i] and a[j]
+    
+    // exchange the element at index i in a and the element at index j in a
     private static void exch(ArrayList<Integer> a, int i, int j) {
         int swap = a.get(i);
         a.set(i, a.get(j));

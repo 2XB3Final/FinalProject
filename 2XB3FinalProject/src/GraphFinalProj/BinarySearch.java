@@ -12,10 +12,10 @@ public class BinarySearch {
     private BinarySearch() { }
 
     /**
-     * Searches for the integer key in the sorted array a[].
+     * Searches for the integer key in the sorted ArrayList a.
      * @param key the search key
-     * @param a the array of integers, must be sorted in ascending order
-     * @return index of key in array a[] if present; -1 if not present
+     * @param a the ArrayList of integers, must be sorted in ascending order
+     * @return index of key in ArrayList a if present; -1 if not present
      */
     public static int rank(int key, ArrayList<Integer> a) {
         int lo = 0;

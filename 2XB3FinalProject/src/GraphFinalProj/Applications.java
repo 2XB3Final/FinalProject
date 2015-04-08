@@ -30,7 +30,6 @@ public class Applications {
     	return sources;  	
     }
     
-    
     /**
      * @param G
      * @param i
@@ -49,8 +48,6 @@ public class Applications {
     	}
     	return adj;
     }
-    
-    
     
     /**
      * @param G
@@ -82,7 +79,6 @@ public class Applications {
     public static ArrayList<Integer> heard(Digraph G, int i) {
     	return G.getToList(i);
     }
-    
     
     public static ArrayList<Integer> heard(RandomIntDigraph SymbolG, int i) {
     	int sequentialVertex = SymbolG.index(i);
@@ -116,8 +112,6 @@ public class Applications {
     	return InsertionX.sort(heard);  	
     }
     
-    
-    
     /**
      * @param G
      * @return the ordered list of all the people that have heard the rumour but did not spread it
@@ -127,7 +121,6 @@ public class Applications {
     	ArrayList<Integer> heard = heard(G);
     	ArrayList<Integer> told = told(G);
 //    	System.out.println("size is: " + heard.size());
-    	
     	for (int i = 0; i < heard.size(); i++) {				// iterate every element in the heard
     		int hearer = heard.get(i);
 //    		System.out.println("the person who heard is: " + hearer);
@@ -147,7 +140,6 @@ public class Applications {
     	}
     	return deadEnds; 
     }
-    
     
     /**
      * @param G
@@ -171,7 +163,6 @@ public class Applications {
 
     }
     
-
     /**
      * @param G the digraph
      * @param vertex the vertex that is being inquired about
