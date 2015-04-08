@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.Stack;
 
 import org.apache.commons.lang3.time.StopWatch;
 
@@ -96,6 +97,10 @@ public class RandomIntDigraph {
 //    		DirectedCycle checkCycles = new DirectedCycle(G);
 //            if (checkCycles.hasCycle()) {
 //            	fileInput.close();
+//            	Iterable<Integer> cycle = checkCycles.cycle();
+//            	for (int i : cycle) {
+//            		System.out.print(keys[i] + " -> ");
+//            	}
 //            	throw new IllegalArgumentException("This data does not represent a directed acyclic graph");
 //            }
     	
@@ -157,7 +162,7 @@ public class RandomIntDigraph {
 	public static void main(String[] args) {
 		StopWatch watch = new StopWatch();
     	watch.start();
-    	RandomIntDigraph gtest = new RandomIntDigraph("2XB3FinalProject/data/cit-HepPh.txt");
+    	RandomIntDigraph gtest = new RandomIntDigraph("data/cit-HepPh.txt");
     	watch.stop();
     	//System.out.println(gtest.toString());
     	System.out.println("Time: " + watch.getTime() + " ms");
