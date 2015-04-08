@@ -89,9 +89,7 @@ public class Applications {
     			deadEnds.add(hearer);
     		}
     	}														// in heard but not told, that means 
-    	/*while (deadEnds.contains(-1)) {							// it's a dead end
-    		deadEnds.remove(-1);								// BinarySearch makes returns -1 to a
-    	}	*/													// search miss, need to remove them
+    	
     	return deadEnds;
     }
     
