@@ -36,16 +36,16 @@ public class OutputGenerator {
 		
 		StopWatch watch = new StopWatch();
 		watch.start();
-		Digraph gtest = new Digraph("data/tinyDAG.txt");
+		Digraph gtest = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
 		watch.stop();
 		long buildTime1 = watch.getTime();
 		watch.reset();
 		watch.start();
-		RandomIntDigraph ridtest = new RandomIntDigraph("data/tinyDAGST.txt");
+		RandomIntDigraph ridtest = new RandomIntDigraph("2XB3FinalProject/data/tinyDAGST.txt");
 		watch.stop();
 		long buildTime2 = watch.getTime();
 		watch.reset();
-		PrintStream output = new PrintStream(new File("data/FinalProject_Output.txt"));
+		PrintStream output = new PrintStream(new File("2XB3FinalProject/data/FinalProject_Output.txt"));
 		
 		output.println("tinyDAG.txt");
 		output.println("-------");
@@ -77,6 +77,23 @@ public class OutputGenerator {
 		long endsTime1 = watch.getTime();
 		watch.reset();
         output.println("The people that heard but not told the rumour are " + out + ".");
+        
+        ///////////////////////////////////NEW
+        output.println();
+        for (int i = 0; i < gtest.V(); i++) {
+        	output.println("Is " + i + " a spreader? " + Applications.isSpreader(gtest, i));
+        }
+        
+        for (int i = 0; i < gtest.V(); i++) {
+        	output.println("Is " + i + " a hearer? " + Applications.isHearer(gtest, i));
+        }
+        
+        output.println();
+        output.println("Role ");
+        for (int i = 0; i < gtest.V(); i++) {
+        	output.println(Applications.roleOf(gtest, i));
+        }
+        ///////////////////////////////////NEW END
         
         output.println();
         output.println("Heard from first list: ");
@@ -156,7 +173,7 @@ public class OutputGenerator {
 		output.println();
 
 		watch.start();
-		ridtest = new RandomIntDigraph("data/cit-HepPh.txt");
+		ridtest = new RandomIntDigraph("2XB3FinalProject/data/cit-HepPh.txt");
 		watch.stop();
 		long buildTime3 = watch.getTime();
 		watch.reset();

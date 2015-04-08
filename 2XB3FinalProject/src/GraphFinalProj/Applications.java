@@ -177,7 +177,7 @@ public class Applications {
 
     }
     
-    public String roleOf(Digraph G, int i) {
+    public static String roleOf(Digraph G, int i) {
     	boolean spreader = isSpreader(G,i);
     	boolean hearer = isHearer(G,i);
     	if (spreader && hearer) return (i + " both heard and spread the information.");

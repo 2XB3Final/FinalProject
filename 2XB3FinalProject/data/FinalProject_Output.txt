@@ -4,6 +4,47 @@ The sources are: [8, 2].
 The people that told the rumour are: [0, 2, 3, 5, 6, 7, 8, 9, 11].
 The people that heard the rumour are: [0, 1, 3, 4, 5, 6, 7, 9, 10, 11, 12].
 The people that heard but not told the rumour are [1, 4, 10, 12].
+Is 0 a spreader? true
+Is 1 a spreader? false
+Is 2 a spreader? true
+Is 3 a spreader? true
+Is 4 a spreader? false
+Is 5 a spreader? true
+Is 6 a spreader? true
+Is 7 a spreader? true
+Is 8 a spreader? true
+Is 9 a spreader? true
+Is 10 a spreader? false
+Is 11 a spreader? true
+Is 12 a spreader? false
+Is 0 a hearer? true
+Is 1 a hearer? true
+Is 2 a hearer? false
+Is 3 a hearer? true
+Is 4 a hearer? true
+Is 5 a hearer? true
+Is 6 a hearer? true
+Is 7 a hearer? true
+Is 8 a hearer? false
+Is 9 a hearer? true
+Is 10 a hearer? true
+Is 11 a hearer? true
+Is 12 a hearer? true
+
+Role 
+0 both heard and spread the information.
+1 heard the information
+2 spread the information.
+3 both heard and spread the information.
+4 heard the information
+5 both heard and spread the information.
+6 both heard and spread the information.
+7 both heard and spread the information.
+8 spread the information.
+9 both heard and spread the information.
+10 heard the information
+11 both heard and spread the information.
+12 heard the information
 
 Heard from first list: 
 0 heard the rumour from [2] first.
@@ -26,15 +67,15 @@ Task Name 		 Time (ms) 		 % of Total Time
  
 ------------------------------------------------------------
  
-Build digraph 		 39 			 88%
-getSource() 		 2 			 4%
+Build digraph 		 99 			 86%
+getSource() 		 6 			 5%
 told() 			 0 			 0%
 heard() 		 0 			 0%
-deadEnds() 		 0 			 0%
-heardFromFirst() 	 3 (avg:0) 		 6%
+deadEnds() 		 1 			 0%
+heardFromFirst() 	 8 (avg:0) 		 7%
  
 ------------------------------------------------------------
-Total Time: 44 ms
+Total Time: 114 ms
 
 tinyDAGST.txt
 -------------
@@ -64,15 +105,15 @@ Task Name 		 Time (ms) 		 % of Total Time
  
 ------------------------------------------------------------
  
-Build digraph 		 11 			 84%
+Build digraph 		 21 			 84%
 getSource() 		 0 			 0%
-told() 			 0 			 0%
+told() 			 1 			 4%
 heard() 		 0 			 0%
 deadEnds() 		 0 			 0%
-heardFromFirst() 	 2 (avg:0) 		 15%
+heardFromFirst() 	 3 (avg:0) 		 12%
  
 ------------------------------------------------------------
-Total Time: 13 ms
+Total Time: 25 ms
 
 cit-HepPh.txt
 -------------
@@ -193,12 +234,23 @@ Task Name 		 Time (ms) 		 % of Total Time
  
 ------------------------------------------------------------
  
-Build digraph 		 2391 			 29%
-getSource() 		 65 			 0%
-told() 			 1393 			 17%
-heard() 		 1021 			 12%
-deadEnds() 		 25 			 0%
-heardFromFirst() 	 3248 (avg:32) 		 39%
+Build digraph 		 6176 			 31%
+getSource() 		 95 			 0%
+told() 			 3692 			 18%
+heard() 		 2949 			 14%
+deadEnds() 		 63 			 0%
+heardFromFirst() 	 6811 (avg:68) 		 34%
  
 ------------------------------------------------------------
-Total Time: 8143 ms
+Total Time: 19786 ms
+---------------------------------------
+ 
+Build digraph 		 6089 			 29%
+getSource() 		 188 			 0%
+told() 			 4758 			 22%
+heard() 		 3300 			 15%
+deadEnds() 		 90 			 0%
+heardFromFirst() 	 6310 (avg:63) 		 30%
+ 
+------------------------------------------------------------
+Total Time: 20735 ms
