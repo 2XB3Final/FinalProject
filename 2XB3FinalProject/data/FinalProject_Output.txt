@@ -19,6 +19,22 @@ Heard from first list:
 10 heard the rumour from [9] first.
 11 heard the rumour from [9] first.
 12 heard the rumour from [9] first.
+ 
+------------------------------------------------------------
+ 
+Task Name 		 Time (ms) 	 % of Total Time
+ 
+------------------------------------------------------------
+ 
+Build digraph 		 43 		 89%
+getSource() 		 2 		 4%
+told() 			 0 		 0%
+heard() 		 0 		 0%
+deadEnds() 		 0 		 0%
+heardFromFirst() 	 3 (0 on avg) 	 6%
+ 
+------------------------------------------------------------
+Total Time: 48 ms
 
 tinyDAGST.txt
 -------------
@@ -41,3 +57,19 @@ Heard from first list:
 1000 is a source.
 1100 heard the rumour from [800] first.
 1200 heard the rumour from [500, 600] first.
+ 
+------------------------------------------------------------
+ 
+Task Name 		 Time (ms) 	 % of Total Time
+ 
+------------------------------------------------------------
+ 
+Build digraph 		 43 		 93%
+getSource() 		 0 		 0%
+told() 			 1 		 2%
+heard() 		 0 		 0%
+deadEnds() 		 0 		 0%
+heardFromFirst() 	 2 (0 on avg) 	 4%
+ 
+------------------------------------------------------------
+Total Time: 46 ms
