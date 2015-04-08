@@ -75,12 +75,23 @@ public class Applications {
      * @return the ordered list of all the people that have heard the rumour but did not spread it
      */
     public static ArrayList<Integer> deadEnds(Digraph G) {
+    	System.out.println("hi");
+    	if (heard.isEmpty()) heard(G);
+    	if (told.isEmpty()) told(G);
+    	System.out.println("size is: " + heard.size());
+    	
     	for (int i = 0; i < heard.size(); i++) {				// iterate every element in the heard
-    		deadEnds.add(BinarySearch.rank(heard.get(i), told));// list through the told list, if it's
+    		int hearer = heard.get(i);
+    		System.out.println("the person who heard is: " + hearer);
+    		int searchResult = BinarySearch.rank(heard.get(i), told);
+    		System.out.println("result: " + searchResult);
+    		if (searchResult == -1) {
+    			deadEnds.add(hearer);
+    		}
     	}														// in heard but not told, that means 
-    	while (deadEnds.contains(-1)) {							// it's a dead end
+    	/*while (deadEnds.contains(-1)) {							// it's a dead end
     		deadEnds.remove(-1);								// BinarySearch makes returns -1 to a
-    	}														// search miss, need to remove them
+    	}	*/													// search miss, need to remove them
     	return deadEnds;
     }
     
@@ -107,7 +118,7 @@ public class Applications {
     	ArrayList<Integer> origSrc = new ArrayList();
     	// find the shortest paths using BST
     	ArrayList<Integer> srcs;
-    	if (sources == null) srcs = getSource(G);
+    	if (sources.isEmpty()) srcs = getSource(G);
     	else srcs = sources;
     	System.out.println(srcs.toString());														// TESTING
 
