@@ -26,15 +26,15 @@ Task Name 		 Time (ms) 	 % of Total Time
  
 ------------------------------------------------------------
  
-Build digraph 		 43 		 89%
-getSource() 		 2 		 4%
+Build digraph 		 48 		 88%
+getSource() 		 2 		 3%
 told() 			 0 		 0%
 heard() 		 0 		 0%
-deadEnds() 		 0 		 0%
-heardFromFirst() 	 3 (0 on avg) 	 6%
+deadEnds() 		 1 		 1%
+heardFromFirst() 	 3 (0 on avg) 	 5%
  
 ------------------------------------------------------------
-Total Time: 48 ms
+Total Time: 54 ms
 
 tinyDAGST.txt
 -------------
@@ -64,12 +64,12 @@ Task Name 		 Time (ms) 	 % of Total Time
  
 ------------------------------------------------------------
  
-Build digraph 		 43 		 93%
+Build digraph 		 48 		 94%
 getSource() 		 0 		 0%
-told() 			 1 		 2%
+told() 			 1 		 1%
 heard() 		 0 		 0%
 deadEnds() 		 0 		 0%
-heardFromFirst() 	 2 (0 on avg) 	 4%
+heardFromFirst() 	 2 (0 on avg) 	 3%
  
 ------------------------------------------------------------
-Total Time: 46 ms
+Total Time: 51 ms
