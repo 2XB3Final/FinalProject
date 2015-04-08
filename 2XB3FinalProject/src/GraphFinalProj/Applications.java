@@ -22,6 +22,13 @@ public class Applications {
     	return sources;
     }
     
+    public static ArrayList<Integer> getSource(RandomIntDigraph SymbolG) {
+    	ArrayList<Integer> sources = getSource(SymbolG.G());
+    	for (int i = 0; i < sources.size(); i++) {
+    		sources.set(i, SymbolG.name(i));
+    	}
+    	return sources;  	
+    }
     
     
     /**
@@ -32,6 +39,8 @@ public class Applications {
     public static Bag<Integer> told(Digraph G, int i) {
     	return G.getAdjList(i);
     }
+    
+    
     
     /**
      * @param G
