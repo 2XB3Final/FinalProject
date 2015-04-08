@@ -15,16 +15,16 @@ public class OutputGenerator {
 		out.println(" ");
 		out.println("------------------------------------------------------------");
 		out.println(" ");
-		out.println("Task Name \t\t Time (ms) \t % of Total Time");
+		out.println("Task Name \t\t Time (ms) \t\t % of Total Time");
 		out.println(" ");
 		out.println("------------------------------------------------------------");
 		out.println(" ");
-		out.println("Build digraph \t\t " + buildTime + " \t\t " + buildTime*100/totalTime + "%");
-		out.println("getSource() \t\t " + srcTime + " \t\t " + srcTime*100/totalTime + "%");
-		out.println("told() \t\t\t " + toldTime + " \t\t " + toldTime*100/totalTime + "%");
-		out.println("heard() \t\t " + heardTime + " \t\t " + heardTime*100/totalTime + "%");
-		out.println("deadEnds() \t\t " + endsTime + " \t\t " + endsTime*100/totalTime + "%");
-		out.println("heardFromFirst() \t " + firstTime + " (" + firstTime/vertices + " on avg)" +  " \t " + firstTime*100/totalTime + "%");
+		out.println("Build digraph \t\t " + buildTime + " \t\t\t " + buildTime*100/totalTime + "%");
+		out.println("getSource() \t\t " + srcTime + " \t\t\t " + srcTime*100/totalTime + "%");
+		out.println("told() \t\t\t " + toldTime + " \t\t\t " + toldTime*100/totalTime + "%");
+		out.println("heard() \t\t " + heardTime + " \t\t\t " + heardTime*100/totalTime + "%");
+		out.println("deadEnds() \t\t " + endsTime + " \t\t\t " + endsTime*100/totalTime + "%");
+		out.println("heardFromFirst() \t " + firstTime + " (avg:" + firstTime/vertices + ")" +  " \t\t " + firstTime*100/totalTime + "%");
 		out.println(" ");
 		out.println("------------------------------------------------------------");
 		out.println("Total Time: " + totalTime + " ms");
@@ -36,16 +36,16 @@ public class OutputGenerator {
 		
 		StopWatch watch = new StopWatch();
 		watch.start();
-		Digraph gtest = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
+		Digraph gtest = new Digraph("data/tinyDAG.txt");
 		watch.stop();
 		long buildTime1 = watch.getTime();
 		watch.reset();
 		watch.start();
-		RandomIntDigraph ridtest = new RandomIntDigraph("2XB3FinalProject/data/tinyDAGST.txt");
+		RandomIntDigraph ridtest = new RandomIntDigraph("data/tinyDAGST.txt");
 		watch.stop();
 		long buildTime2 = watch.getTime();
 		watch.reset();
-		PrintStream output = new PrintStream(new File("2XB3FinalProject/data/FinalProject_Output.txt"));
+		PrintStream output = new PrintStream(new File("data/FinalProject_Output.txt"));
 		
 		output.println("tinyDAG.txt");
 		output.println("-------");
@@ -137,50 +137,82 @@ public class OutputGenerator {
         	out = Applications.heardFromFirst(ridtest, ridtest.getKeys()[i]);
         	if (out == null) {
         		if (i == 0) {
-        			output.println(i + " is a source.");
+        			output.println(ridtest.getKeys()[i] + " is a source.");
         		}
         		else {
-        			output.println(i + "00 is a source.");
+        			output.println(ridtest.getKeys()[i] + " is a source.");
         		}
             }
             else {
-            	output.println(i + "00 heard the rumour from " + out + " first.");
+            	output.println(ridtest.getKeys()[i] + " heard the rumour from " + out + " first.");
             }
         }
-		output.println();
-
-		ridtest = new RandomIntDigraph("2XB3FinalProject/data/cit-HepPh.txt");
-		output.println("cit-HepPh.txt");
-		output.println("-------------");
-
-		out = Applications.getSource(ridtest);
-		output.println("The sources are: " + out + ".");
-
-		out = Applications.told(ridtest);
-		output.println("The people that told the rumour are: " + out + ".");
-
-		out = Applications.heard(ridtest);
-		output.println("The people that heard the rumour are: " + out + ".");
-
-		out = Applications.deadEnds(ridtest);
-		output.println("The people that heard but not told the rumour are " + out + ".");
-
-		output.println();
-//		output.println("Heard from first list: ");
-//		for (int i = 0; i < ridtest.getKeys().length; i++) {
-//			out = Applications.heardFromFirst(ridtest, ridtest.getKeys()[i]);
-//			if (out == null) {
-//				output.println(i + " is a source.");
-//			}
-//			else {
-//				output.println(i + " heard the rumour from " + out + " first.");
-//			}
-//		}
         watch.stop();
 		firstTime1 = watch.getTime();
 		watch.reset();
 		
-		formatWatchOutput(output,ridtest.G().V(),buildTime1,srcTime1,toldTime1,heardTime1,endsTime1,firstTime1);
+		formatWatchOutput(output,ridtest.G().V(),buildTime2,srcTime1,toldTime1,heardTime1,endsTime1,firstTime1);
+		
+		output.println();
+
+		watch.start();
+		ridtest = new RandomIntDigraph("data/cit-HepPh.txt");
+		watch.stop();
+		long buildTime3 = watch.getTime();
+		watch.reset();
+		output.println("cit-HepPh.txt");
+		output.println("-------------");
+
+		watch.start();
+		out = Applications.getSource(ridtest);
+		watch.stop();
+		srcTime1 = watch.getTime();
+		watch.reset();
+		output.println("The sources are: " + out + ".");
+		output.println();
+
+		watch.start();
+		out = Applications.told(ridtest);
+		watch.stop();
+		toldTime1 = watch.getTime();
+		watch.reset();
+		output.println("The people that told the rumour are: " + out + ".");
+		output.println();
+
+		watch.start();
+		out = Applications.heard(ridtest);
+		watch.stop();
+		heardTime1 = watch.getTime();
+		watch.reset();
+		output.println("The people that heard the rumour are: " + out + ".");
+		output.println();
+
+		watch.start();
+		out = Applications.deadEnds(ridtest);
+		watch.stop();
+		endsTime1 = watch.getTime();
+		watch.reset();
+		output.println("The people that heard but not told the rumour are " + out + ".");
+		output.println();
+
+		output.println();
+		output.println("Heard from first list (sample of first 100): ");
+		watch.start();
+//		for (int i = 0; i < ridtest.getKeys().length; i++) {
+		for (int i = 0; i < 100; i++) {
+			out = Applications.heardFromFirst(ridtest, ridtest.getKeys()[i]);
+			if (out == null) {
+				output.println(ridtest.getKeys()[i] + " is a source.");
+			}
+			else {
+				output.println(ridtest.getKeys()[i] + " heard the rumour from " + out + " first.");
+			}
+		}
+		watch.stop();
+		firstTime1 = watch.getTime();
+		watch.reset();
+       
+		formatWatchOutput(output,100,buildTime3,srcTime1,toldTime1,heardTime1,endsTime1,firstTime1);
 
 
 		output.close();
