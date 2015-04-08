@@ -1,15 +1,17 @@
 package GraphFinalProj;
 
 import java.util.Stack;
+import java.util.LinkedList;
 
 // ALGORITHM ADAPTED FROM SEDGEWICK & WAYNE, ALGORITHMS, 4TH EDITION
 
 public class DepthFirstOrder {
 	private boolean[] marked;          // marked[v] = has v been marked in dfs?
     private int[] post;                // post[v]   = postorder number of v
-    private Queue<Integer> postorder = new Queue<Integer>();  // vertices in postorder
+    private LinkedList<Integer> postorder = new LinkedList<Integer>();  // vertices in postorder
     private int postCounter;           // counter for postorder numbering
 
+    
     /**
      * Determines a depth-first order for the digraph <tt>G</tt>.
      * @param G the digraph
@@ -29,7 +31,7 @@ public class DepthFirstOrder {
                 dfs(G, w);
             }
         }
-        postorder.enqueue(v);
+        postorder.add(v);
         post[v] = postCounter++;
     }
 
@@ -61,11 +63,11 @@ public class DepthFirstOrder {
         return reverse;
     }
     
-//    public static void main (String[] args) {
-//    	Digraph G = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
-//    	DepthFirstOrder dfs = new DepthFirstOrder(G);		// run dfs on the input graph G
-//    	for (int v: dfs.postorder) {
-//    		System.out.println(v);
-//    	}
-//    }
+    public static void main (String[] args) {
+    	Digraph G = new Digraph("data/tinyDAG.txt");
+    	DepthFirstOrder dfs = new DepthFirstOrder(G);		// run dfs on the input graph G
+    	for (int v: dfs.postorder) {
+    		System.out.println(v);
+    	}
+    }
 }
