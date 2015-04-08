@@ -16,30 +16,27 @@ public class OutputGenerator {
 		output.println("-------");
 		
 		ArrayList<Integer> out = Applications.getSource(gtest);
-		output.println("The list of sources are: " + out + ".");
+		output.println("The sources are: " + out + ".");
 		
 		out = Applications.told(gtest);
-		output.println("The list of people that told the rumour are: " + out + ".");
+		output.println("The people that told the rumour are: " + out + ".");
         
         out = Applications.heard(gtest);
-        output.println("The list of people that heard the rumour are: " + out + ".");
+        output.println("The people that heard the rumour are: " + out + ".");
         
         out = Applications.deadEnds(gtest);
-        output.println("The list of people that heard but not told the rumour are " + out + ".");
+        output.println("The people that heard but not told the rumour are " + out + ".");
         
-        out = Applications.heardFromFirst(gtest, 1);
-        if (out == null) {
-        	output.println("1 is a source.");
-        }
-        else {
-        	output.println("1 heard the rumour from " + out + " first.");
-        }
-        out = Applications.heardFromFirst(gtest, 2);
-        if (out == null) {
-        	output.println("2 is a source.");
-        }
-        else {
-        	output.println("2 heard the rumour from " + out + " first.");
+        output.println();
+        output.println("Heard from first list: ");
+        for (int i = 0; i < gtest.V(); i++) {
+        	out = Applications.heardFromFirst(gtest, i);
+        	if (out == null) {
+            	output.println(i + " is a source.");
+            }
+            else {
+            	output.println(i + " heard the rumour from " + out + " first.");
+            }
         }
         output.println();
         
@@ -47,30 +44,32 @@ public class OutputGenerator {
 		output.println("-------------");
 		
 		out = Applications.getSource(ridtest);
-		output.println("The list of sources are: " + out + ".");
+		output.println("The sources are: " + out + ".");
 		
 		out = Applications.told(ridtest);
-		output.println("The list of people that told the rumour are: " + out + ".");
+		output.println("The people that told the rumour are: " + out + ".");
         
         out = Applications.heard(ridtest);
-        output.println("The list of people that heard the rumour are: " + out + ".");
+        output.println("The people that heard the rumour are: " + out + ".");
         
         out = Applications.deadEnds(ridtest);
-        output.println("The list of people that heard but not told the rumour are " + out + ".");
+        output.println("The people that heard but not told the rumour are " + out + ".");
         
-        out = Applications.heardFromFirst(ridtest, 1200);
-        if (out == null) {
-        	output.println("1200 is a source.");
-        }
-        else {
-        	output.println("1200 heard the rumour from " + out + " first.");
-        }
-        out = Applications.heardFromFirst(ridtest, 200);
-        if (out == null) {
-        	output.println("200 is a source.");
-        }
-        else {
-        	output.println("200 heard the rumour from " + out + " first.");
+        output.println();
+        output.println("Heard from first list: ");
+        for (int i = 0; i < ridtest.getKeys().length; i++) {
+        	out = Applications.heardFromFirst(ridtest, ridtest.getKeys()[i]);
+        	if (out == null) {
+        		if (i == 0) {
+        			output.println(i + " is a source.");
+        		}
+        		else {
+        			output.println(i + "00 is a source.");
+        		}
+            }
+            else {
+            	output.println(i + "00 heard the rumour from " + out + " first.");
+            }
         }
 
 		output.close();
