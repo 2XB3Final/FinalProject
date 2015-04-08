@@ -14,3 +14,4 @@ The list of people that told the rumour are: [200, 300, 0, 600, 1100, 900, 500, 
 The list of people that heard the rumour are: [300, 0, 600, 100, 1100, 1200, 900, 1000, 500, 700, 400].
 The list of people that heard but not told the rumour are [100, 1200, 1000, 400].
 1200 heard the rumour from [900] first.
+200 is a source.

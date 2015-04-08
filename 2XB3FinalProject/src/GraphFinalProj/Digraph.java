@@ -33,6 +33,11 @@ public class Digraph{
 //		to = (Bag<Integer>[]) new Bag[V];
 		to = (ArrayList<Integer>[]) new ArrayList[V];
         buildDigraph();
+        
+        DirectedCycle checkCycles = new DirectedCycle(this);
+        if (checkCycles.hasCycle()) {
+        	throw new IllegalArgumentException("This data does not represent a directed acyclic graph");
+        }
     }
     
     // Constructs digraph from an input file
@@ -78,6 +83,12 @@ public class Digraph{
 //    			System.out.println(v + " -> " + w);									// TESTING
     			addEdge(v,w);
     		}
+    		
+    		DirectedCycle checkCycles = new DirectedCycle(this);
+            if (checkCycles.hasCycle()) {
+            	fileInput.close();
+            	throw new IllegalArgumentException("This data does not represent a directed acyclic graph");
+            }
 
     		fileInput.close();
     	}
