@@ -147,7 +147,6 @@ public class Digraph{
     public void addEdge(int v, int w){
         adj[v].add(w);
         to[w].add(v);
-        to[w].add(v);
         E++;
     }
 
