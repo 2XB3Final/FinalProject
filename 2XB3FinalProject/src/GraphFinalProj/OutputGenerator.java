@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
-public class OutputGenerator {
+public class OutputGenerator { 
 
 	public static void main(String[] args) throws FileNotFoundException {
 		Digraph gtest = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
