@@ -71,8 +71,7 @@ public class Applications {
     	for (int i = 0; i < told.size(); i++) {
     		told.set(i, SymbolG.name(told.get(i)));
     	}
-    	return told;  	
-    	
+    	return InsertionX.sort(told);  	
     }
     
     /**
@@ -114,7 +113,7 @@ public class Applications {
     	for (int i = 0; i < heard.size(); i++) {
     		heard.set(i, SymbolG.name(heard.get(i)));
     	}
-    	return heard;  	
+    	return InsertionX.sort(heard);  	
     }
     
     
@@ -138,7 +137,6 @@ public class Applications {
     			deadEnds.add(hearer);
     		}
     	}														// in heard but not told, that means 
-    	
     	return deadEnds;
     }
     
