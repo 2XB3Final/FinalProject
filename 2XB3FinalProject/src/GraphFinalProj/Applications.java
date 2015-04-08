@@ -66,6 +66,15 @@ public class Applications {
     	return told;
     }
     
+    public static ArrayList<Integer> told(RandomIntDigraph SymbolG) {
+    	ArrayList<Integer> told = told(SymbolG.G());
+    	for (int i = 0; i < told.size(); i++) {
+    		told.set(i, SymbolG.name(told.get(i)));
+    	}
+    	return told;  	
+    	
+    }
+    
     /**
      * @param G
      * @param i
@@ -73,6 +82,17 @@ public class Applications {
      */
     public static ArrayList<Integer> heard(Digraph G, int i) {
     	return G.getToList(i);
+    }
+    
+    
+    public static ArrayList<Integer> heard(RandomIntDigraph SymbolG, int i) {
+    	int sequentialVertex = SymbolG.index(i);
+    	ArrayList<Integer> sequentialTo = SymbolG.G().getToList(sequentialVertex);
+    	ArrayList<Integer> to = new ArrayList<Integer>();
+    	for (int iSeq : sequentialTo) {
+    		to.add(SymbolG.name(iSeq));
+    	}
+    	return to;
     }
     
     /**
@@ -88,6 +108,16 @@ public class Applications {
     	}
     	return heard;
     }
+    
+    public static ArrayList<Integer> heard(RandomIntDigraph SymbolG) {
+    	ArrayList<Integer> heard = heard(SymbolG.G());
+    	for (int i = 0; i < heard.size(); i++) {
+    		heard.set(i, SymbolG.name(heard.get(i)));
+    	}
+    	return heard;  	
+    }
+    
+    
     
     /**
      * @param G
@@ -112,6 +142,15 @@ public class Applications {
     	
     	return deadEnds;
     }
+    
+    public static ArrayList<Integer> deadEnds(RandomIntDigraph SymbolG) {
+    	ArrayList<Integer> deadEnds = deadEnds(SymbolG.G());
+    	for (int i = 0; i < deadEnds.size(); i++) {
+    		deadEnds.set(i, SymbolG.name(deadEnds.get(i)));
+    	}
+    	return deadEnds; 
+    }
+    
     
     /**
      * @param G
