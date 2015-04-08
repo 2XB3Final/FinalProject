@@ -40,6 +40,16 @@ public class Applications {
     	return G.getAdjList(i);
     }
     
+    public static Bag<Integer> told(RandomIntDigraph SymbolG, int i) {
+    	int sequentialVertex = SymbolG.index(i);
+    	Bag<Integer> sequentialAdj = SymbolG.G().getAdjList(sequentialVertex);
+    	Bag<Integer> adj = new Bag<Integer>();
+    	for (int iSeq : sequentialAdj) {
+    		adj.add(SymbolG.name(iSeq));
+    	}
+    	return adj;
+    }
+    
     
     
     /**
