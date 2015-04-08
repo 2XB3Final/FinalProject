@@ -8,7 +8,8 @@ public class OutputGenerator {
 
 	public static void main(String[] args) throws FileNotFoundException {
 	       PrintStream output = new PrintStream(new File("data/FinalProject_Output.txt"));
-	       output.println("hi");
+	       Digraph g1 = new Digraph("data/tinyDAG.txt");
+	       
 	       
 	       output.close();
 
