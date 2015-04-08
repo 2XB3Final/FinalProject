@@ -28,4 +28,16 @@ The people that heard the rumour are: [300, 0, 600, 100, 1100, 1200, 900, 1000, 
 The people that heard but not told the rumour are [100, 1200, 1000, 400].
 
 Heard from first list: 
-0 heard the rumour from [200] first.
+0 is a source.
+100 heard the rumour from [200] first.
+200 heard the rumour from [200] first.
+300 heard the rumour from [0, 700] first.
+400 heard the rumour from [0] first.
+500 heard the rumour from [900] first.
+600 heard the rumour from [900] first.
+700 heard the rumour from [600] first.
+800 heard the rumour from [900] first.
+900 heard the rumour from [300, 0] first.
+1000 is a source.
+1100 heard the rumour from [800] first.
+1200 heard the rumour from [500, 600] first.

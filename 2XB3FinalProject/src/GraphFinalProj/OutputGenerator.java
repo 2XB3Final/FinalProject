@@ -57,13 +57,18 @@ public class OutputGenerator {
         
         output.println();
         output.println("Heard from first list: ");
-        for (int i = 0; i < ridtest.G().V(); i++) {
-        	out = Applications.heardFromFirst(ridtest, i);
+        for (int i = 0; i < ridtest.getKeys().length; i++) {
+        	out = Applications.heardFromFirst(ridtest, ridtest.getKeys()[i]);
         	if (out == null) {
-            	output.println(i + " is a source.");
+        		if (i == 0) {
+        			output.println(i + " is a source.");
+        		}
+        		else {
+        			output.println(i + "00 is a source.");
+        		}
             }
             else {
-            	output.println(i + " heard the rumour from " + out + " first.");
+            	output.println(i + "00 heard the rumour from " + out + " first.");
             }
         }
 
