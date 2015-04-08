@@ -20,7 +20,6 @@ public class Digraph{
     // list of all vertices that a given vertex points to, indexed by vertex
     private Bag<Integer>[] adj;
     // list of all vertices that point to a given vertex, indexed by vertex
-//    private Bag<Integer>[] to;
     private ArrayList<Integer>[] to;
     
     // Constructs empty digraph with V vertices
@@ -30,7 +29,6 @@ public class Digraph{
         this.E = 0;
         
         adj = (Bag<Integer>[]) new Bag[V];
-//		to = (Bag<Integer>[]) new Bag[V];
 		to = (ArrayList<Integer>[]) new ArrayList[V];
         buildDigraph();
         
@@ -65,7 +63,6 @@ public class Digraph{
     		}
 
     		adj = (Bag<Integer>[]) new Bag[V];
-//    		to = (Bag<Integer>[]) new Bag[V];
     		to = (ArrayList<Integer>[]) new ArrayList[V];
 
     		buildDigraph();
@@ -97,12 +94,13 @@ public class Digraph{
     	}
     }
 	
-	private void buildDigraph()
-	{
+    /**
+     * initializes the digraph
+     */
+	private void buildDigraph() {
 		adj=(Bag<Integer>[])new Bag[V];
 		for(int v = 0; v < V; v++) {
 			adj[v]= new Bag<Integer>();
-//			to[v] = new Bag<Integer>();
 			to[v] = new ArrayList<Integer>();
 		}
 
@@ -144,12 +142,8 @@ public class Digraph{
     public ArrayList<Integer>[] getToList() {
     	return to;
     }
-
-//    // Gets the to list for a specific vertex
-//	public Bag<Integer> getToList(int i) {
-//		return to[i];
-//	}
 	
+    // Gets the to list for a specific vertex
 	public ArrayList<Integer> getToList(int i) {
 		return to[i];
 	}

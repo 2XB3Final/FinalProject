@@ -73,7 +73,6 @@ public class DirectedCycle {
         return cycle;
     }
 
-
     // certify that digraph is either acyclic or has a directed cycle
     private boolean check(Digraph G) {
 
@@ -89,8 +88,6 @@ public class DirectedCycle {
                 return false;
             }
         }
-
-
         return true;
     }
 }

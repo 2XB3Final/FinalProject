@@ -8,8 +8,8 @@ public class InsertionX {
     private InsertionX() { }
 
     /**
-     * Rearranges the array in ascending order, using the natural order.
-     * @param a the array to be sorted
+     * Rearranges the ArrayList in ascending order, using the natural order.
+     * @param a the ArrayList to be sorted
      * @return 
      */
     public static ArrayList<Integer> sort(ArrayList<Integer> a) {
@@ -24,7 +24,7 @@ public class InsertionX {
             int v = a.get(i);
             int j = i;
             while (less(v, a.get(j-1))) {
-                a.set(j,j-1);
+                a.set(j,a.get(j-1));
                 j--;
             }
             a.set(j,v);
@@ -40,11 +40,11 @@ public class InsertionX {
     private static boolean less(int v, int w) {
         return v < w;
     }
-        
-    // exchange a[i] and a[j]
+    
+    // exchange the element at index i in a and the element at index j in a
     private static void exch(ArrayList<Integer> a, int i, int j) {
         int swap = a.get(i);
-        a.set(i, j);
+        a.set(i, a.get(j));
         a.set(j,swap);
     }
 }
