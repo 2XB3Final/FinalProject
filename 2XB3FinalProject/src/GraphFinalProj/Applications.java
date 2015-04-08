@@ -228,6 +228,8 @@ public class Applications {
     	int sequentialVertex = SymbolG.index(vertex);
     	ArrayList<Integer> origSrc = heardFromFirst(SymbolG.G(),sequentialVertex);
     	
+    	if (origSrc == null) return null;
+
     	for (int i = 0; i < origSrc.size(); i++) {
     		origSrc.set(i, SymbolG.name(origSrc.get(i)));
     	}
