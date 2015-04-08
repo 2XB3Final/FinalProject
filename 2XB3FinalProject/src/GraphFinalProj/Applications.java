@@ -224,6 +224,16 @@ public class Applications {
     	return origSrc;
     }
     
+    public static ArrayList<Integer> heardFromFirst(RandomIntDigraph SymbolG, int vertex) {
+    	int sequentialVertex = SymbolG.index(vertex);
+    	ArrayList<Integer> origSrc = heardFromFirst(SymbolG.G(),sequentialVertex);
+    	
+    	for (int i = 0; i < origSrc.size(); i++) {
+    		origSrc.set(i, SymbolG.name(origSrc.get(i)));
+    	}
+    	return origSrc; 
+    }
+    
     public static void main (String[] args) {
     	Digraph gtest = new Digraph("data/tinyDAG.txt");
     	
@@ -236,6 +246,41 @@ public class Applications {
 //    	System.out.println("people who heard it: " + heard(gtest));
     	
 //    	System.out.println("people who told it: " + told(gtest));
+    	
+        RandomIntDigraph ridtest = new RandomIntDigraph("data/tinyDAGST.txt");
+        
+        System.out.println("sources: " + sources.toString());
+        
+        sources = getSource(ridtest);
+        System.out.println("Sources: " + sources.toString());
+        
+        Bag<Integer> told = told(gtest, 9);
+        for (int i : told) {
+         System.out.println("people who told it: " + i);
+        }
+        
+        told = told(ridtest, 900);
+        for (int i : told) {
+         System.out.println("people who told it: " + i);
+        }
+        
+        ArrayList<Integer> tolda = told(gtest);
+        System.out.println("people who told it: " + tolda);
+        
+        tolda = told(ridtest);
+        System.out.println("people who told it: " + tolda);
+        
+        ArrayList<Integer> heard = heard(gtest, 12);
+        System.out.println("people who heard it: " + heard.toString());
+        
+        heard = heard(ridtest,1200);
+        System.out.println("people who heard it: " + heard.toString());
+        
+        heard = heard(gtest);
+        System.out.println("people who heard it: " + heard.toString());
+        
+        heard = heard(ridtest);
+        System.out.println("people who heard it: " + heard.toString());
 
     }
 }
