@@ -274,6 +274,23 @@ public class Applications {
         
         System.out.println("dead ends: " + deadEnds(gtest));
         System.out.println("dead ends: " + deadEnds(ridtest));
-
+        
+        System.out.println(isSpreader(gtest, 2));
+        System.out.println(isSpreader(gtest, 1));
+        
+        System.out.println(isSpreader(ridtest, 900));
+        System.out.println(isSpreader(ridtest, 400));
+        
+        ArrayList heardFromFirst = heardFromFirst(gtest, 12);
+        System.out.println("12 heard the rumour from " + heardFromFirst.toString() + " first");
+        
+        heardFromFirst = heardFromFirst(gtest, 6);
+        System.out.println("6 heard the rumour from " + heardFromFirst.toString() + " first");
+        
+        heardFromFirst = heardFromFirst(ridtest, 1200);
+        System.out.println("12 heard the rumour from " + heardFromFirst.toString() + " first");
+        
+        heardFromFirst = heardFromFirst(ridtest, 600);
+        System.out.println("6 heard the rumour from " + heardFromFirst.toString() + " first");
     }
 }
