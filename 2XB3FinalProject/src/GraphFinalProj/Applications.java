@@ -235,20 +235,10 @@ public class Applications {
     }
     
     public static void main (String[] args) {
-    	Digraph gtest = new Digraph("data/tinyDAG.txt");
-    	
-    	ArrayList<Integer> sources = getSource(gtest);
-//    	System.out.println("sources: " + sources.toString());
-
-    	
-//    	System.out.println("dead ends: " + deadEnds(gtest));
-    	
-//    	System.out.println("people who heard it: " + heard(gtest));
-    	
-//    	System.out.println("people who told it: " + told(gtest));
-    	
-        RandomIntDigraph ridtest = new RandomIntDigraph("data/tinyDAGST.txt");
+        Digraph gtest = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
+        RandomIntDigraph ridtest = new RandomIntDigraph("2XB3FinalProject/data/tinyDAGST.txt");
         
+        ArrayList<Integer> sources = getSource(gtest);
         System.out.println("sources: " + sources.toString());
         
         sources = getSource(ridtest);
@@ -281,6 +271,9 @@ public class Applications {
         
         heard = heard(ridtest);
         System.out.println("people who heard it: " + heard.toString());
+        
+        System.out.println("dead ends: " + deadEnds(gtest));
+        System.out.println("dead ends: " + deadEnds(ridtest));
 
     }
 }
