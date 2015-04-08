@@ -120,12 +120,9 @@ public class Applications {
     	ArrayList<Integer> deadEnds = new ArrayList();
     	ArrayList<Integer> heard = heard(G);
     	ArrayList<Integer> told = told(G);
-//    	System.out.println("size is: " + heard.size());
     	for (int i = 0; i < heard.size(); i++) {				// iterate every element in the heard
     		int hearer = heard.get(i);
-//    		System.out.println("the person who heard is: " + hearer);
     		int searchResult = BinarySearch.rank(heard.get(i), told);
-//    		System.out.println("result: " + searchResult);
     		if (searchResult == -1) {
     			deadEnds.add(hearer);
     		}
@@ -247,65 +244,5 @@ public class Applications {
     		origSrc.set(i, SymbolG.name(origSrc.get(i)));
     	}
     	return origSrc; 
-    }
-    
-    public static void main (String[] args) {
-        Digraph gtest = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
-        RandomIntDigraph ridtest = new RandomIntDigraph("2XB3FinalProject/data/tinyDAGST.txt");
-        
-        ArrayList<Integer> sources = getSource(gtest);
-        System.out.println("sources: " + sources.toString());
-        
-        sources = getSource(ridtest);
-        System.out.println("Sources: " + sources.toString());
-        
-        Bag<Integer> told = told(gtest, 9);
-        for (int i : told) {
-         System.out.println("people who told it: " + i);
-        }
-        
-        told = told(ridtest, 900);
-        for (int i : told) {
-         System.out.println("people who told it: " + i);
-        }
-        
-        ArrayList<Integer> tolda = told(gtest);
-        System.out.println("people who told it: " + tolda);
-        
-        tolda = told(ridtest);
-        System.out.println("people who told it: " + tolda);
-        
-        ArrayList<Integer> heard = heard(gtest, 12);
-        System.out.println("people who heard it: " + heard.toString());
-        
-        heard = heard(ridtest,1200);
-        System.out.println("people who heard it: " + heard.toString());
-        
-        heard = heard(gtest);
-        System.out.println("people who heard it: " + heard.toString());
-        
-        heard = heard(ridtest);
-        System.out.println("people who heard it: " + heard.toString());
-        
-        System.out.println("dead ends: " + deadEnds(gtest));
-        System.out.println("dead ends: " + deadEnds(ridtest));
-        
-        System.out.println(isSpreader(gtest, 2));
-        System.out.println(isSpreader(gtest, 1));
-        
-        System.out.println(isSpreader(ridtest, 900));
-        System.out.println(isSpreader(ridtest, 400));
-        
-        ArrayList heardFromFirst = heardFromFirst(gtest, 12);
-        System.out.println("12 heard the rumour from " + heardFromFirst.toString() + " first");
-        
-        heardFromFirst = heardFromFirst(gtest, 6);
-        System.out.println("6 heard the rumour from " + heardFromFirst.toString() + " first");
-        
-        heardFromFirst = heardFromFirst(ridtest, 1200);
-        System.out.println("1200 heard the rumour from " + heardFromFirst.toString() + " first");
-        
-        heardFromFirst = heardFromFirst(ridtest, 600);
-        System.out.println("600 heard the rumour from " + heardFromFirst.toString() + " first");
     }
 }
