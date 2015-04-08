@@ -288,9 +288,9 @@ public class Applications {
         System.out.println("6 heard the rumour from " + heardFromFirst.toString() + " first");
         
         heardFromFirst = heardFromFirst(ridtest, 1200);
-        System.out.println("12 heard the rumour from " + heardFromFirst.toString() + " first");
+        System.out.println("1200 heard the rumour from " + heardFromFirst.toString() + " first");
         
         heardFromFirst = heardFromFirst(ridtest, 600);
-        System.out.println("6 heard the rumour from " + heardFromFirst.toString() + " first");
+        System.out.println("600 heard the rumour from " + heardFromFirst.toString() + " first");
     }
 }
