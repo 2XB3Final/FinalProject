@@ -3,18 +3,14 @@ package GraphFinalProj;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class Applications {
-    private static ArrayList<Integer> sources = new ArrayList();
-    private static ArrayList<Integer> told = new ArrayList();
-    private static ArrayList<Integer> heard = new ArrayList();
-    private static ArrayList<Integer> deadEnds = new ArrayList();
-    
+public class Applications {    
     /**
      * Find all the sources by doing reverse postorder on the input graph
      * @param G
      * @return the sources in an arraylist
      */
     public static ArrayList<Integer> getSource(Digraph G) {
+    	ArrayList<Integer> sources = new ArrayList();
     	DepthFirstOrder dfs = new DepthFirstOrder(G);		// run dfs on the input graph G
     	Stack<Integer> revPost = dfs.reversePost();			// run reverse postorder on dfs
     	while (!revPost.empty()) {							// while the stack is not empty
@@ -25,6 +21,8 @@ public class Applications {
     	}
     	return sources;
     }
+    
+    
     
     /**
      * @param G
@@ -40,6 +38,7 @@ public class Applications {
      * @return the ordered list of all the people that have told the rumour
      */
     public static ArrayList<Integer> told(Digraph G) {
+    	ArrayList<Integer> told = new ArrayList();
     	for (int i = 0; i < G.getAdjList().length; i++) {		// iterate through the adjacency list
     		if (!G.getAdjList(i).isEmpty()) {					// if an element's adjacency list is not
     			told.add(i);									// empty, it has told the rumour, add it
@@ -62,6 +61,7 @@ public class Applications {
      * @return the ordered list of all the people that have heard the rumour
      */
     public static ArrayList<Integer> heard(Digraph G) {
+    	ArrayList<Integer> heard = new ArrayList();
     	for (int i = 0; i < G.getToList().length; i++) {		// iterate through the to list
     		if (!G.getToList(i).isEmpty()) {					// if an element's to list is not
     			heard.add(i);									// empty, it has heard the rumour, add it
@@ -75,9 +75,10 @@ public class Applications {
      * @return the ordered list of all the people that have heard the rumour but did not spread it
      */
     public static ArrayList<Integer> deadEnds(Digraph G) {
+    	ArrayList<Integer> deadEnds = new ArrayList();
     	System.out.println("hi");
-    	if (heard.isEmpty()) heard(G);
-    	if (told.isEmpty()) told(G);
+    	ArrayList<Integer> heard = heard(G);
+    	ArrayList<Integer> told = told(G);
     	System.out.println("size is: " + heard.size());
     	
     	for (int i = 0; i < heard.size(); i++) {				// iterate every element in the heard
@@ -115,9 +116,7 @@ public class Applications {
     public static ArrayList<Integer> heardFromFirst(Digraph G, int vertex) {
     	ArrayList<Integer> origSrc = new ArrayList();
     	// find the shortest paths using BST
-    	ArrayList<Integer> srcs;
-    	if (sources.isEmpty()) srcs = getSource(G);
-    	else srcs = sources;
+    	ArrayList<Integer> srcs = getSource(G);
     	System.out.println(srcs.toString());														// TESTING
 
     	BreadthFirstDirectedPaths paths = new BreadthFirstDirectedPaths(G,srcs);
