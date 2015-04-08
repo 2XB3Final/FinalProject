@@ -4,6 +4,7 @@ The sources are: [8, 2].
 The people that told the rumour are: [0, 2, 3, 5, 6, 7, 8, 9, 11].
 The people that heard the rumour are: [0, 1, 3, 4, 5, 6, 7, 9, 10, 11, 12].
 The people that heard but not told the rumour are [1, 4, 10, 12].
+
 Is 0 a spreader? true
 Is 1 a spreader? false
 Is 2 a spreader? true
@@ -67,15 +68,15 @@ Task Name 		 Time (ms) 		 % of Total Time
  
 ------------------------------------------------------------
  
-Build digraph 		 99 			 86%
-getSource() 		 6 			 5%
+Build digraph 		 47 			 88%
+getSource() 		 2 			 3%
 told() 			 0 			 0%
 heard() 		 0 			 0%
-deadEnds() 		 1 			 0%
-heardFromFirst() 	 8 (avg:0) 		 7%
+deadEnds() 		 1 			 1%
+heardFromFirst() 	 3 (avg:0) 		 5%
  
 ------------------------------------------------------------
-Total Time: 114 ms
+Total Time: 53 ms
 
 tinyDAGST.txt
 -------------
@@ -105,15 +106,15 @@ Task Name 		 Time (ms) 		 % of Total Time
  
 ------------------------------------------------------------
  
-Build digraph 		 21 			 84%
+Build digraph 		 12 			 92%
 getSource() 		 0 			 0%
-told() 			 1 			 4%
+told() 			 0 			 0%
 heard() 		 0 			 0%
 deadEnds() 		 0 			 0%
-heardFromFirst() 	 3 (avg:0) 		 12%
+heardFromFirst() 	 1 (avg:0) 		 7%
  
 ------------------------------------------------------------
-Total Time: 25 ms
+Total Time: 13 ms
 
 cit-HepPh.txt
 -------------
@@ -234,23 +235,12 @@ Task Name 		 Time (ms) 		 % of Total Time
  
 ------------------------------------------------------------
  
-Build digraph 		 6176 			 31%
-getSource() 		 95 			 0%
-told() 			 3692 			 18%
-heard() 		 2949 			 14%
-deadEnds() 		 63 			 0%
-heardFromFirst() 	 6811 (avg:68) 		 34%
+Build digraph 		 3005 			 34%
+getSource() 		 62 			 0%
+told() 			 1437 			 16%
+heard() 		 965 			 11%
+deadEnds() 		 82 			 0%
+heardFromFirst() 	 3140 (avg:31) 		 36%
  
 ------------------------------------------------------------
-Total Time: 19786 ms
----------------------------------------
- 
-Build digraph 		 6089 			 29%
-getSource() 		 188 			 0%
-told() 			 4758 			 22%
-heard() 		 3300 			 15%
-deadEnds() 		 90 			 0%
-heardFromFirst() 	 6310 (avg:63) 		 30%
- 
-------------------------------------------------------------
-Total Time: 20735 ms
+Total Time: 8691 ms
