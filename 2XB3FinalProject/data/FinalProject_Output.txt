@@ -68,15 +68,15 @@ Task Name 		 Time (ms) 		 % of Total Time
  
 ------------------------------------------------------------
  
-Build digraph 		 47 			 88%
-getSource() 		 2 			 3%
+Build digraph 		 75 			 92%
+getSource() 		 3 			 3%
 told() 			 0 			 0%
 heard() 		 0 			 0%
-deadEnds() 		 1 			 1%
-heardFromFirst() 	 3 (avg:0) 		 5%
+deadEnds() 		 0 			 0%
+heardFromFirst() 	 3 (avg:0) 		 3%
  
 ------------------------------------------------------------
-Total Time: 53 ms
+Total Time: 81 ms
 
 tinyDAGST.txt
 -------------
@@ -106,15 +106,15 @@ Task Name 		 Time (ms) 		 % of Total Time
  
 ------------------------------------------------------------
  
-Build digraph 		 12 			 92%
+Build digraph 		 14 			 77%
 getSource() 		 0 			 0%
-told() 			 0 			 0%
+told() 			 1 			 5%
 heard() 		 0 			 0%
 deadEnds() 		 0 			 0%
-heardFromFirst() 	 1 (avg:0) 		 7%
+heardFromFirst() 	 3 (avg:0) 		 16%
  
 ------------------------------------------------------------
-Total Time: 13 ms
+Total Time: 18 ms
 
 cit-HepPh.txt
 -------------
@@ -235,12 +235,12 @@ Task Name 		 Time (ms) 		 % of Total Time
  
 ------------------------------------------------------------
  
-Build digraph 		 3005 			 34%
-getSource() 		 62 			 0%
-told() 			 1437 			 16%
-heard() 		 965 			 11%
-deadEnds() 		 82 			 0%
-heardFromFirst() 	 3140 (avg:31) 		 36%
+Build digraph 		 2857 			 32%
+getSource() 		 99 			 1%
+told() 			 1416 			 16%
+heard() 		 967 			 11%
+deadEnds() 		 22 			 0%
+heardFromFirst() 	 3421 (avg:34) 		 38%
  
 ------------------------------------------------------------
-Total Time: 8691 ms
+Total Time: 8782 ms
