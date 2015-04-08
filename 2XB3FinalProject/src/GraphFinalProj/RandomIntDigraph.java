@@ -106,6 +106,10 @@ public class RandomIntDigraph {
     	
 	}
 	
+	public Integer[] getKeys() {
+		return keys;
+	}
+	
 	/**
      * Does the digraph contain the vertex named <tt>s</tt>?
      * @param s the name of a vertex
