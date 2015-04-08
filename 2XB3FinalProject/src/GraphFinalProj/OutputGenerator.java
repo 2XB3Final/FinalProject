@@ -198,7 +198,6 @@ public class OutputGenerator {
 		output.println();
 		output.println("Heard from first list (sample of first 100): ");
 		watch.start();
-//		for (int i = 0; i < ridtest.getKeys().length; i++) {
 		for (int i = 0; i < 100; i++) {
 			out = Applications.heardFromFirst(ridtest, ridtest.getKeys()[i]);
 			if (out == null) {
