@@ -125,16 +125,15 @@ public class Applications {
      */
     public static ArrayList<Integer> deadEnds(Digraph G) {
     	ArrayList<Integer> deadEnds = new ArrayList();
-    	System.out.println("hi");
     	ArrayList<Integer> heard = heard(G);
     	ArrayList<Integer> told = told(G);
-    	System.out.println("size is: " + heard.size());
+//    	System.out.println("size is: " + heard.size());
     	
     	for (int i = 0; i < heard.size(); i++) {				// iterate every element in the heard
     		int hearer = heard.get(i);
-    		System.out.println("the person who heard is: " + hearer);
+//    		System.out.println("the person who heard is: " + hearer);
     		int searchResult = BinarySearch.rank(heard.get(i), told);
-    		System.out.println("result: " + searchResult);
+//    		System.out.println("result: " + searchResult);
     		if (searchResult == -1) {
     			deadEnds.add(hearer);
     		}
@@ -165,6 +164,15 @@ public class Applications {
     		return true;
     	}
     }
+    
+    public static boolean isSpreader(RandomIntDigraph SymbolG, int i) {
+    	int sequentialVertex = SymbolG.index(i);
+    	if (told(SymbolG.G(),sequentialVertex).isEmpty()) {
+    		return false;
+    	} else return true;
+
+    }
+    
 
     /**
      * @param G the digraph
@@ -175,18 +183,18 @@ public class Applications {
     	ArrayList<Integer> origSrc = new ArrayList();
     	// find the shortest paths using BST
     	ArrayList<Integer> srcs = getSource(G);
-    	System.out.println(srcs.toString());														// TESTING
+//    	System.out.println(srcs.toString());														// TESTING
 
     	BreadthFirstDirectedPaths paths = new BreadthFirstDirectedPaths(G,srcs);
     	// get a list of all the vertices that point to vertex
     	ArrayList<Integer> toList = G.getToList(vertex);
-    	System.out.println("the toList: " + toList.toString());										// TESTING
+//    	System.out.println("the toList: " + toList.toString());										// TESTING
     	// if no vertices point to vertex, then it never received the information at all
     	if (toList.isEmpty()) return null;
 
     	// initialising variables
     	int currentVertex = toList.get(0);
-    	System.out.println("current vertex: " + currentVertex);										// TESTING
+//    	System.out.println("current vertex: " + currentVertex);										// TESTING
     	int shortestPathVertex = currentVertex;
     	int length = paths.distTo(shortestPathVertex);
     	int shortestLength = length;
@@ -220,18 +228,14 @@ public class Applications {
     	Digraph gtest = new Digraph("data/tinyDAG.txt");
     	
     	ArrayList<Integer> sources = getSource(gtest);
-    	System.out.println("sources: " + sources.toString());
-//    	sources = new ArrayList();																	// TESTING
-//    	sources.add(2);																				// TESTING
-//    	sources.add(8);																				// TESTING
-//    	ArrayList tester = heardFromFirst(gtest,12);
-//    	System.out.println(tester.toString());
+//    	System.out.println("sources: " + sources.toString());
+
     	
-    	System.out.println("dead ends: " + deadEnds(gtest));
+//    	System.out.println("dead ends: " + deadEnds(gtest));
     	
-    	System.out.println("people who heard it: " + heard(gtest));
+//    	System.out.println("people who heard it: " + heard(gtest));
     	
-    	System.out.println("people who told it: " + told(gtest));
+//    	System.out.println("people who told it: " + told(gtest));
 
     }
 }
