@@ -25,7 +25,7 @@ public class Applications {
     public static ArrayList<Integer> getSource(RandomIntDigraph SymbolG) {
     	ArrayList<Integer> sources = getSource(SymbolG.G());
     	for (int i = 0; i < sources.size(); i++) {
-    		sources.set(i, SymbolG.name(i));
+    		sources.set(i, SymbolG.name(sources.get(i)));
     	}
     	return sources;  	
     }
