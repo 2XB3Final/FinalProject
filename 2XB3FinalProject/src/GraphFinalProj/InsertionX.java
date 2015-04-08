@@ -24,7 +24,7 @@ public class InsertionX {
             int v = a.get(i);
             int j = i;
             while (less(v, a.get(j-1))) {
-                a.set(j,j-1);
+                a.set(j,a.get(j-1));
                 j--;
             }
             a.set(j,v);
@@ -44,7 +44,7 @@ public class InsertionX {
     // exchange a[i] and a[j]
     private static void exch(ArrayList<Integer> a, int i, int j) {
         int swap = a.get(i);
-        a.set(i, j);
+        a.set(i, a.get(j));
         a.set(j,swap);
     }
 }
