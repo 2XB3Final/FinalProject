@@ -93,11 +93,11 @@ public class RandomIntDigraph {
     			G.addEdge(v,w);
     		}
     		
-    		DirectedCycle checkCycles = new DirectedCycle(G);
-            if (checkCycles.hasCycle()) {
-            	fileInput.close();
-            	throw new IllegalArgumentException("This data does not represent a directed acyclic graph");
-            }
+//    		DirectedCycle checkCycles = new DirectedCycle(G);
+//            if (checkCycles.hasCycle()) {
+//            	fileInput.close();
+//            	throw new IllegalArgumentException("This data does not represent a directed acyclic graph");
+//            }
     	
     	
     		fileInput.close();

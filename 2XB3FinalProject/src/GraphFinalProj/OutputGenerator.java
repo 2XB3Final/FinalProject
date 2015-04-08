@@ -36,16 +36,16 @@ public class OutputGenerator {
 		
 		StopWatch watch = new StopWatch();
 		watch.start();
-		Digraph gtest = new Digraph("data/tinyDAG.txt");
+		Digraph gtest = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
 		watch.stop();
 		long buildTime1 = watch.getTime();
 		watch.reset();
 		watch.start();
-		RandomIntDigraph ridtest = new RandomIntDigraph("data/tinyDAGST.txt");
+		RandomIntDigraph ridtest = new RandomIntDigraph("2XB3FinalProject/data/tinyDAGST.txt");
 		watch.stop();
 		long buildTime2 = watch.getTime();
 		watch.reset();
-		PrintStream output = new PrintStream(new File("data/FinalProject_Output.txt"));
+		PrintStream output = new PrintStream(new File("2XB3FinalProject/data/FinalProject_Output.txt"));
 		
 		output.println("tinyDAG.txt");
 		output.println("-------");
@@ -147,6 +147,35 @@ public class OutputGenerator {
             	output.println(i + "00 heard the rumour from " + out + " first.");
             }
         }
+		output.println();
+
+		ridtest = new RandomIntDigraph("2XB3FinalProject/data/cit-HepPh.txt");
+		output.println("cit-HepPh.txt");
+		output.println("-------------");
+
+		out = Applications.getSource(ridtest);
+		output.println("The sources are: " + out + ".");
+
+		out = Applications.told(ridtest);
+		output.println("The people that told the rumour are: " + out + ".");
+
+		out = Applications.heard(ridtest);
+		output.println("The people that heard the rumour are: " + out + ".");
+
+		out = Applications.deadEnds(ridtest);
+		output.println("The people that heard but not told the rumour are " + out + ".");
+
+		output.println();
+//		output.println("Heard from first list: ");
+//		for (int i = 0; i < ridtest.getKeys().length; i++) {
+//			out = Applications.heardFromFirst(ridtest, ridtest.getKeys()[i]);
+//			if (out == null) {
+//				output.println(i + " is a source.");
+//			}
+//			else {
+//				output.println(i + " heard the rumour from " + out + " first.");
+//			}
+//		}
         watch.stop();
 		firstTime1 = watch.getTime();
 		watch.reset();
