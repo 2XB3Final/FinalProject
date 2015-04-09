@@ -166,24 +166,4 @@ public class Digraph{
         }
         return R;        
     }
-
-    // Returns a string representation of the graph (for testing purposes)
-    @Override
-    public String toString(){
-        StringBuilder s = new StringBuilder();
-        String NEWLINE = System.getProperty("line.separator");
-        s.append(V + " vertices, " + E + " edges " + NEWLINE);
-        for(int v = 0; v < V; v++){
-            s.append(String.format("%d: points to: ", v));
-            for(int w : adj[v]){
-                s.append(String.format("%d ", w));
-            }
-            s.append(" // comes from: ");
-            for(int x : to[v]){
-                s.append(String.format("%d ", x));
-            }
-            s.append(NEWLINE);
-        }
-        return s.toString();
-    }
 }
