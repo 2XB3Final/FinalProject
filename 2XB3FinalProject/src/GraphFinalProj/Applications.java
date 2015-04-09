@@ -193,18 +193,15 @@ public class Applications {
     	ArrayList<Integer> origSrc = new ArrayList();
     	// find the shortest paths using BST
     	ArrayList<Integer> srcs = getSource(G);
-//    	System.out.println(srcs.toString());														// TESTING
 
     	BreadthFirstDirectedPaths paths = new BreadthFirstDirectedPaths(G,srcs);
     	// get a list of all the vertices that point to vertex
     	ArrayList<Integer> toList = G.getToList(vertex);
-//    	System.out.println("the toList: " + toList.toString());										// TESTING
     	// if no vertices point to vertex, then it never received the information at all
     	if (toList.isEmpty()) return null;
 
     	// initialising variables
     	int currentVertex = toList.get(0);
-//    	System.out.println("current vertex: " + currentVertex);										// TESTING
     	int shortestPathVertex = currentVertex;
     	int length = paths.distTo(shortestPathVertex);
     	int shortestLength = length;
