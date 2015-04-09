@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.util.Stack;
-
-import org.apache.commons.lang3.time.StopWatch;
 
 //ALGORITHM ADAPTED FROM SEDGEWICK & WAYNE, ALGORITHMS, 4TH EDITION
 
@@ -123,7 +120,7 @@ public class RandomIntDigraph {
 	}
 
 	/**
-	 * Returns the digraph assoicated with the symbol graph. It is the client's responsibility
+	 * Returns the digraph associated with the symbol graph. It is the client's responsibility
 	 * not to mutate the digraph.
 	 * @return the digraph associated with the symbol digraph
 	 */
