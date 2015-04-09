@@ -54,7 +54,7 @@ public class DepthFirstOrder {
 
     /**
      * Returns the vertices in reverse postorder.
-     * @return the vertices in reverse postorder, as an stack of vertices
+     * @return the vertices in reverse postorder, as a stack of vertices
      */
     public Stack<Integer> reversePost() {
         Stack<Integer> reverse = new Stack<Integer>();
