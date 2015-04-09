@@ -13,21 +13,8 @@ public class BreadthFirstDirectedPaths {
     private int[] distTo;      // distTo[v] = length of shortest s->v path
 
     /**
-     * Computes the shortest path from <tt>s</tt> and every other vertex in graph <tt>G</tt>.
-     * @param G the digraph
-     * @param s the source vertex
-     */
-    public BreadthFirstDirectedPaths(Digraph G, int s) {
-        marked = new boolean[G.V()];
-        distTo = new int[G.V()];
-        edgeTo = new int[G.V()];
-        for (int v = 0; v < G.V(); v++) distTo[v] = INFINITY;
-        bfs(G, s);
-    }
-
-    /**
-     * Computes the shortest path from any one of the source vertices in <tt>sources</tt>
-     * to every other vertex in graph <tt>G</tt>.
+     * Computes the shortest path from any one of the source vertices in sources
+     * to every other vertex in graph G.
      * @param G the digraph
      * @param sources the source vertices
      */
@@ -80,37 +67,12 @@ public class BreadthFirstDirectedPaths {
     }
 
     /**
-     * Is there a directed path from the source <tt>s</tt> (or sources) to vertex <tt>v</tt>?
-     * @param v the vertex
-     * @return <tt>true</tt> if there is a directed path, <tt>false</tt> otherwise
-     */
-    public boolean hasPathTo(int v) {
-        return marked[v];
-    }
-
-    /**
-     * Returns the number of edges in a shortest path from the source <tt>s</tt>
-     * (or sources) to vertex <tt>v</tt>?
+     * Returns the number of edges in a shortest path from the source s
+     * (or sources) to vertex v?
      * @param v the vertex
      * @return the number of edges in a shortest path
      */
     public int distTo(int v) {
         return distTo[v];
-    }
-
-    /**
-     * Returns a shortest path from <tt>s</tt> (or sources) to <tt>v</tt>, or
-     * <tt>null</tt> if no such path.
-     * @param v the vertex
-     * @return the sequence of vertices on a shortest path, as an Iterable
-     */
-    public Iterable<Integer> pathTo(int v) {
-        if (!hasPathTo(v)) return null;
-        Stack<Integer> path = new Stack<Integer>();
-        int x;
-        for (x = v; distTo[x] != 0; x = edgeTo[x])
-            path.push(x);
-        path.push(x);
-        return path;
     }
 }

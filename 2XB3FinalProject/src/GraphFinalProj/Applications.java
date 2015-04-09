@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class Applications {    
     /**
-     * Find all the sources by doing reverse postorder on the input graph
+     * Find all the sources by doing reverse postorder on the input digraph
      * @param G
      * @return the sources in an arraylist
      */
@@ -191,7 +191,6 @@ public class Applications {
     	else if (!spreader && hearer) return (i + " heard the information");
     	else return (i + " was not involved.");
     }
-
     
     /**
      * @param G the digraph

@@ -13,7 +13,7 @@ public class DepthFirstOrder {
 
     
     /**
-     * Determines a depth-first order for the digraph <tt>G</tt>.
+     * Determines a depth-first order for the digraph G.
      * @param G the digraph
      */
     public DepthFirstOrder(Digraph G) {
@@ -36,9 +36,9 @@ public class DepthFirstOrder {
     }
 
     /**
-     * Returns the postorder number of vertex <tt>v</tt>.
+     * Returns the postorder number of vertex v.
      * @param v the vertex
-     * @return the postorder number of vertex <tt>v</tt>
+     * @return the postorder number of vertex v
      */
     public int post(int v) {
         return post[v];
