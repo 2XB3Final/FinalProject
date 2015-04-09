@@ -102,18 +102,18 @@ public class RandomIntDigraph {
 	}
 
 	/**
-	 * Returns the integer associated with the vertex named <tt>s</tt>.
+	 * Returns the integer associated with the vertex named s.
 	 * @param s the name of a vertex
-	 * @return the integer (between 0 and <em>V</em> - 1) associated with the vertex named <tt>s</tt>
+	 * @return the integer (between 0 and V - 1) associated with the vertex named s
 	 */
 	public int index(int s) {
 		return st.get(s);
 	}
 
 	/**
-	 * Returns the name of the vertex associated with the integer <tt>v</tt>.
-	 * @param v the integer corresponding to a vertex (between 0 and <em>V</em> - 1) 
-	 * @return the name of the vertex associated with the integer <tt>v</tt>
+	 * Returns the name of the vertex associated with the integer v.
+	 * @param v the integer corresponding to a vertex (between 0 and V - 1) 
+	 * @return the name of the vertex associated with the integer v
 	 */
 	public int name(int v) {
 		return keys[v];

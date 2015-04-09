@@ -12,7 +12,7 @@ public class DirectedCycle {
     private Stack<Integer> cycle;    // directed cycle (or null if no such cycle)
 
     /**
-     * Determines whether the digraph <tt>G</tt> has a directed cycle and, if so,
+     * Determines whether the digraph G has a directed cycle and, if so,
      * finds such a cycle.
      * @param G the digraph
      */
@@ -54,7 +54,7 @@ public class DirectedCycle {
 
     /**
      * Does the digraph have a directed cycle?
-     * @return <tt>true</tt> if the digraph has a directed cycle, <tt>false</tt> otherwise
+     * @return true if the digraph has a directed cycle, false otherwise
      */
     public boolean hasCycle() {
         return cycle != null;

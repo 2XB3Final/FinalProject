@@ -78,7 +78,6 @@ public class OutputGenerator {
 		watch.reset();
         output.println("The people that heard but not told the rumour are " + out + ".");
         
-        ///////////////////////////////////NEW
         output.println();
         for (int i = 0; i < gtest.V(); i++) {
         	output.println("Is " + i + " a spreader? " + Applications.isSpreader(gtest, i));
@@ -93,7 +92,6 @@ public class OutputGenerator {
         for (int i = 0; i < gtest.V(); i++) {
         	output.println(Applications.roleOf(gtest, i));
         }
-        ///////////////////////////////////NEW END
         
         output.println();
         output.println("Heard from first list: ");
@@ -229,7 +227,6 @@ public class OutputGenerator {
 		watch.reset();
        
 		formatWatchOutput(output,100,buildTime3,srcTime1,toldTime1,heardTime1,endsTime1,firstTime1);
-
 
 		output.close();
 	}
