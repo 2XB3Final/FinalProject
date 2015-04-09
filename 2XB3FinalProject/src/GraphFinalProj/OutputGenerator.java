@@ -36,16 +36,16 @@ public class OutputGenerator {
 		
 		StopWatch watch = new StopWatch();
 		watch.start();
-		Digraph gtest = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
+		Digraph gtest = new Digraph("data/tinyDAG.txt");
 		watch.stop();
 		long buildTime1 = watch.getTime();
 		watch.reset();
 		watch.start();
-		RandomIntDigraph ridtest = new RandomIntDigraph("2XB3FinalProject/data/tinyDAGST.txt");
+		RandomIntDigraph ridtest = new RandomIntDigraph("data/tinyDAGST.txt");
 		watch.stop();
 		long buildTime2 = watch.getTime();
 		watch.reset();
-		PrintStream output = new PrintStream(new File("2XB3FinalProject/data/FinalProject_Output.txt"));
+		PrintStream output = new PrintStream(new File("data/FinalProject_Output.txt"));
 		
 		output.println("tinyDAG.txt");
 		output.println("-------");
@@ -173,7 +173,7 @@ public class OutputGenerator {
 		output.println();
 
 		watch.start();
-		ridtest = new RandomIntDigraph("2XB3FinalProject/data/cit-HepPh.txt");
+		ridtest = new RandomIntDigraph("data/cit-HepPh.txt");
 		watch.stop();
 		long buildTime3 = watch.getTime();
 		watch.reset();

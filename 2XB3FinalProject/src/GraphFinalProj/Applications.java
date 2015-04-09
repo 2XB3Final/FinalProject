@@ -120,13 +120,13 @@ public class Applications {
     	ArrayList<Integer> deadEnds = new ArrayList();
     	ArrayList<Integer> heard = heard(G);
     	ArrayList<Integer> told = told(G);
-    	for (int i = 0; i < heard.size(); i++) {				// iterate every element in the heard
-    		int hearer = heard.get(i);
-    		int searchResult = BinarySearch.rank(heard.get(i), told);
-    		if (searchResult == -1) {
+    	for (int i = 0; i < heard.size(); i++) {				// binary searches every element in the heard
+    		int hearer = heard.get(i);							// list in told, if it is in heard but not
+    		int searchResult = BinarySearch.rank(heard.get(i), told);	// told, that means it is a dead
+    		if (searchResult == -1) {							// end, i.e. if it's a search miss
     			deadEnds.add(hearer);
     		}
-    	}														// in heard but not told, that means 
+    	} 
     	return deadEnds;
     }
     
@@ -177,6 +177,15 @@ public class Applications {
     public static String roleOf(Digraph G, int i) {
     	boolean spreader = isSpreader(G,i);
     	boolean hearer = isHearer(G,i);
+    	if (spreader && hearer) return (i + " both heard and spread the information.");
+    	else if (spreader && !hearer) return (i + " spread the information.");
+    	else if (!spreader && hearer) return (i + " heard the information");
+    	else return (i + " was not involved.");
+    }
+    
+    public static String roleOf(RandomIntDigraph SymbolG, int i) {
+    	boolean spreader = isSpreader(SymbolG,i);
+    	boolean hearer = isHearer(SymbolG,i);
     	if (spreader && hearer) return (i + " both heard and spread the information.");
     	else if (spreader && !hearer) return (i + " spread the information.");
     	else if (!spreader && hearer) return (i + " heard the information");
