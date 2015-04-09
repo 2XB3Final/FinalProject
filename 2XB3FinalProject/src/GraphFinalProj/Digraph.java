@@ -8,8 +8,6 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.Stack;
 
-import org.apache.commons.lang3.time.StopWatch;
-
 // ALGORITHM ADAPTED FROM SEDGEWICK & WAYNE, ALGORITHMS, 4TH EDITION
 
 public class Digraph{
@@ -100,23 +98,7 @@ public class Digraph{
 			to[v] = new ArrayList<Integer>();
 		}
 
-	}
-    
-	// Clones a digraph
-    public Digraph(Digraph G){
-        this(G.V());
-        this.E = G.E();
-        for(int v = 0; v < G.V(); v++){
-            // reverse so that adjacency list is in same order as original
-            Stack<Integer> reverse = new Stack<Integer>();
-            for(int w : G.adj[v]){
-                reverse.push(w);
-            }
-            for(int w : reverse){
-                adj[v].add(w);
-            }
-        }
-    } 
+	} 
   
     // Gets the number of vertices
     public int V(){ return V; }
@@ -149,21 +131,5 @@ public class Digraph{
         adj[v].add(w);
         to[w].add(v);
         E++;
-    }
-
-    // Returns the number of edges going out of a given vertex
-    public int outdegree(int v){
-        return adj[v].size();
-    }
-
-    // Reverses digraph
-    public Digraph reverse(){
-        Digraph R = new Digraph(V);
-        for (int v = 0; v < V; v++){
-            for (int w : getAdjList(v)){
-                R.addEdge(w, v);
-            }
-        }
-        return R;        
     }
 }
