@@ -182,6 +182,15 @@ public class Applications {
     	else if (!spreader && hearer) return (i + " heard the information");
     	else return (i + " was not involved.");
     }
+    
+    public static String roleOf(RandomIntDigraph SymbolG, int i) {
+    	boolean spreader = isSpreader(SymbolG,i);
+    	boolean hearer = isHearer(SymbolG,i);
+    	if (spreader && hearer) return (i + " both heard and spread the information.");
+    	else if (spreader && !hearer) return (i + " spread the information.");
+    	else if (!spreader && hearer) return (i + " heard the information");
+    	else return (i + " was not involved.");
+    }
 
     
     /**
