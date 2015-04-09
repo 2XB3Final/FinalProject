@@ -19,12 +19,12 @@ public class OutputGenerator {
 		out.println(" ");
 		out.println("------------------------------------------------------------");
 		out.println(" ");
-		out.println("Build digraph \t\t " + buildTime + " \t\t\t " + buildTime*100/totalTime + "%");
-		out.println("getSource() \t\t " + srcTime + " \t\t\t " + srcTime*100/totalTime + "%");
-		out.println("told() \t\t\t " + toldTime + " \t\t\t " + toldTime*100/totalTime + "%");
-		out.println("heard() \t\t " + heardTime + " \t\t\t " + heardTime*100/totalTime + "%");
-		out.println("deadEnds() \t\t " + endsTime + " \t\t\t " + endsTime*100/totalTime + "%");
-		out.println("heardFromFirst() \t " + firstTime + " (avg:" + firstTime/vertices + ")" +  " \t\t " + firstTime*100/totalTime + "%");
+		out.println("Build digraph \t\t" + buildTime + "\t\t\t\t" + buildTime*100/totalTime + "%");
+		out.println("getSource() \t\t" + srcTime + "\t\t\t\t" + srcTime*100/totalTime + "%");
+		out.println("told() \t\t\t\t" + toldTime + "\t\t\t\t" + toldTime*100/totalTime + "%");
+		out.println("heard() \t\t\t" + heardTime + "\t\t\t\t" + heardTime*100/totalTime + "%");
+		out.println("deadEnds() \t\t\t" + endsTime + "\t\t\t\t " + endsTime*100/totalTime + "%");
+		out.println("heardFromFirst() \t" + firstTime + " (avg:" + firstTime/vertices + ")" +  "\t\t" + firstTime*100/totalTime + "%");
 		out.println(" ");
 		out.println("------------------------------------------------------------");
 		out.println("Total Time: " + totalTime + " ms");
