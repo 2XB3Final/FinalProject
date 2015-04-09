@@ -36,23 +36,6 @@ public class DepthFirstOrder {
     }
 
     /**
-     * Returns the postorder number of vertex v.
-     * @param v the vertex
-     * @return the postorder number of vertex v
-     */
-    public int post(int v) {
-        return post[v];
-    }
-
-    /**
-     * Returns the vertices in postorder.
-     * @return the vertices in postorder, as an iterable of vertices
-     */
-    public Iterable<Integer> post() {
-        return postorder;
-    }
-
-    /**
      * Returns the vertices in reverse postorder.
      * @return the vertices in reverse postorder, as a stack of vertices
      */
