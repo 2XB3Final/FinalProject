@@ -2,5 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="2XB3FinalProject/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/Fiona/Desktop/commons-lang3-3.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Fiona/Desktop/commons-lang3-3.3.2-javadoc.jar"/>
 	<classpathentry kind="output" path="2XB3FinalProject/bin"/>
 </classpath>
