@@ -56,7 +56,6 @@ public class Digraph{
 
     	try{
     		this.V = fileInput.nextInt();
-//    		System.out.println(V);													// TESTING
     		if(V < 0) {
     			fileInput.close();
     			throw new IllegalArgumentException("Incorrect number of vertices (cannot be negative)");
@@ -67,7 +66,6 @@ public class Digraph{
 
     		buildDigraph();
     		int E = fileInput.nextInt();
-//   		System.out.println(E);													// TESTING
     		if(E < 0) {
     			fileInput.close();
     			throw new IllegalArgumentException("Incorrect number of edges (cannot be negative)");
@@ -76,8 +74,6 @@ public class Digraph{
     		for(int i = 0; i < E; i++) {
     			int v = fileInput.nextInt();
     			int w = fileInput.nextInt();
-//    			System.out.println(i);												// TESTING
-//    			System.out.println(v + " -> " + w);									// TESTING
     			addEdge(v,w);
     		}
     		
@@ -169,35 +165,5 @@ public class Digraph{
             }
         }
         return R;        
-    }
-
-    // Returns a string representation of the graph (for testing purposes)
-    @Override
-    public String toString(){
-        StringBuilder s = new StringBuilder();
-        String NEWLINE = System.getProperty("line.separator");
-        s.append(V + " vertices, " + E + " edges " + NEWLINE);
-        for(int v = 0; v < V; v++){
-            s.append(String.format("%d: points to: ", v));
-            for(int w : adj[v]){
-                s.append(String.format("%d ", w));
-            }
-            s.append(" // comes from: ");
-            for(int x : to[v]){
-                s.append(String.format("%d ", x));
-            }
-            s.append(NEWLINE);
-        }
-        return s.toString();
-    }
-
-    public static void main(String[] args){
-    	StopWatch watch = new StopWatch();
-    	watch.start();
-    	Digraph gtest = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
-    	watch.stop();
-    	System.out.println(gtest.toString());
-    	System.out.println("Time: " + watch.getTime() + " ms");
-    	watch.reset();
     }
 }

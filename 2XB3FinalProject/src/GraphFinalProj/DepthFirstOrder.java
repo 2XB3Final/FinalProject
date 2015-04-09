@@ -54,20 +54,12 @@ public class DepthFirstOrder {
 
     /**
      * Returns the vertices in reverse postorder.
-     * @return the vertices in reverse postorder, as an stack of vertices
+     * @return the vertices in reverse postorder, as a stack of vertices
      */
     public Stack<Integer> reversePost() {
         Stack<Integer> reverse = new Stack<Integer>();
         for (int v : postorder)
             reverse.push(v);
         return reverse;
-    }
-    
-    public static void main (String[] args) {
-    	Digraph G = new Digraph("data/tinyDAG.txt");
-    	DepthFirstOrder dfs = new DepthFirstOrder(G);		// run dfs on the input graph G
-    	for (int v: dfs.postorder) {
-    		System.out.println(v);
-    	}
     }
 }

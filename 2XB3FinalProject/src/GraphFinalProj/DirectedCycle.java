@@ -63,31 +63,4 @@ public class DirectedCycle {
     public boolean hasCycle() {
         return cycle != null;
     }
-
-    /**
-     * Returns a directed cycle if the digraph has a directed cycle, and <tt>null</tt> otherwise.
-     * @return a directed cycle (as an iterable) if the digraph has a directed cycle,
-     *    and <tt>null</tt> otherwise
-     */
-    public Iterable<Integer> cycle() {
-        return cycle;
-    }
-
-    // certify that digraph is either acyclic or has a directed cycle
-    private boolean check(Digraph G) {
-
-        if (hasCycle()) {
-            // verify cycle
-            int first = -1, last = -1;
-            for (int v : cycle()) {
-                if (first == -1) first = v;
-                last = v;
-            }
-            if (first != last) {
-                System.err.printf("cycle begins with %d and ends with %d\n", first, last);
-                return false;
-            }
-        }
-        return true;
-    }
 }

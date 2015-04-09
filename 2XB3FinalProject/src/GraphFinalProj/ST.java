@@ -45,17 +45,6 @@ public class ST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
     }
 
     /**
-     * Removes the key and associated value from the symbol table
-     * (if the key is in the symbol table).
-     * @param key the key
-     * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>
-     */
-    public void delete(Key key) {
-        if (key == null) throw new NullPointerException("called delete() with null key");
-        st.remove(key);
-    }
-
-    /**
      * Does this symbol table contain the given key?
      * @param key the key
      * @return <tt>true</tt> if this symbol table contains <tt>key</tt> and
@@ -73,14 +62,6 @@ public class ST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
      */
     public int size() {
         return st.size();
-    }
-
-    /**
-     * Is this symbol table empty?
-     * @return <tt>true</tt> if this symbol table is empty and <tt>false</tt> otherwise
-     */
-    public boolean isEmpty() {
-        return size() == 0;
     }
 
     /**
@@ -104,59 +85,5 @@ public class ST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
      */
     public Iterator<Key> iterator() {
         return st.keySet().iterator();
-    }
-
-    /**
-     * Returns the smallest key in the symbol table.
-     * @return the smallest key in the symbol table
-     * @throws NoSuchElementException if the symbol table is empty
-     */
-    public Key min() {
-        if (isEmpty()) throw new NoSuchElementException("called min() with empty symbol table");
-        return st.firstKey();
-    }
-
-    /**
-     * Returns the largest key in the symbol table.
-     * @return the largest key in the symbol table
-     * @throws NoSuchElementException if the symbol table is empty
-     */
-    public Key max() {
-        if (isEmpty()) throw new NoSuchElementException("called max() with empty symbol table");
-        return st.lastKey();
-    }
-
-    /**
-     * Returns the smallest key in the symbol table greater than or equal to <tt>key</tt>.
-     * @return the smallest key in the symbol table greater than or equal to <tt>key</tt>
-     * @param key the key
-     * @throws NoSuchElementException if there is no such key
-     * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>
-     */
-    public Key ceiling(Key key) {
-        if (key == null) throw new NullPointerException("called ceiling() with null key");
-        Key k = st.ceilingKey(key);
-        if (k == null) throw new NoSuchElementException("all keys are less than " + key);
-        return k;
-    }
-
-    /**
-     * Returns the largest key in the symbol table less than or equal to <tt>key</tt>.
-     * @return the largest key in the symbol table less than or equal to <tt>key</tt>
-     * @param key the key
-     * @throws NoSuchElementException if there is no such key
-     * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>
-     */
-    public Key floor(Key key) {
-        if (key == null) throw new NullPointerException("called floor() with null key");
-        Key k = st.floorKey(key);
-        if (k == null) throw new NoSuchElementException("all keys are greater than " + key);
-        return k;
-    }
-
-    /**
-     * Unit tests the <tt>ST</tt> data type.
-     */
-    public static void main(String[] args) {
     }
 }
