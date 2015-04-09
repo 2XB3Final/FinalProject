@@ -23,19 +23,7 @@ public class DepthFirstOrder {
 			if (!marked[v]) dfs(G, v);
 	}
 
-<<<<<<< HEAD
-    /**
-     * Returns the vertices in reverse postorder.
-     * @return the vertices in reverse postorder, as a stack of vertices
-     */
-    public Stack<Integer> reversePost() {
-        Stack<Integer> reverse = new Stack<Integer>();
-        for (int v : postorder)
-            reverse.push(v);
-        return reverse;
-    }
-=======
-	// run DFS in digraph G from vertex v and compute preorder/postorder
+    // run DFS in digraph G from vertex v and compute preorder/postorder
 	private void dfs(Digraph G, int v) {
 		marked[v] = true;
 		for (int w : G.getAdjList(v)) {
@@ -48,23 +36,6 @@ public class DepthFirstOrder {
 	}
 
 	/**
-	 * Returns the postorder number of vertex v.
-	 * @param v the vertex
-	 * @return the postorder number of vertex v
-	 */
-	public int post(int v) {
-		return post[v];
-	}
-
-	/**
-	 * Returns the vertices in postorder.
-	 * @return the vertices in postorder, as an iterable of vertices
-	 */
-	public Iterable<Integer> post() {
-		return postorder;
-	}
-
-	/**
 	 * Returns the vertices in reverse postorder.
 	 * @return the vertices in reverse postorder, as a stack of vertices
 	 */
@@ -74,5 +45,4 @@ public class DepthFirstOrder {
 			reverse.push(v);
 		return reverse;
 	}
->>>>>>> Fiona
 }
