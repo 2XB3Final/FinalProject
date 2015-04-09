@@ -56,7 +56,6 @@ public class Digraph{
 
     	try{
     		this.V = fileInput.nextInt();
-//    		System.out.println(V);													// TESTING
     		if(V < 0) {
     			fileInput.close();
     			throw new IllegalArgumentException("Incorrect number of vertices (cannot be negative)");
@@ -67,7 +66,6 @@ public class Digraph{
 
     		buildDigraph();
     		int E = fileInput.nextInt();
-//   		System.out.println(E);													// TESTING
     		if(E < 0) {
     			fileInput.close();
     			throw new IllegalArgumentException("Incorrect number of edges (cannot be negative)");
@@ -76,8 +74,6 @@ public class Digraph{
     		for(int i = 0; i < E; i++) {
     			int v = fileInput.nextInt();
     			int w = fileInput.nextInt();
-//    			System.out.println(i);												// TESTING
-//    			System.out.println(v + " -> " + w);									// TESTING
     			addEdge(v,w);
     		}
     		
@@ -189,15 +185,5 @@ public class Digraph{
             s.append(NEWLINE);
         }
         return s.toString();
-    }
-
-    public static void main(String[] args){
-    	StopWatch watch = new StopWatch();
-    	watch.start();
-    	Digraph gtest = new Digraph("2XB3FinalProject/data/tinyDAG.txt");
-    	watch.stop();
-    	System.out.println(gtest.toString());
-    	System.out.println("Time: " + watch.getTime() + " ms");
-    	watch.reset();
     }
 }
