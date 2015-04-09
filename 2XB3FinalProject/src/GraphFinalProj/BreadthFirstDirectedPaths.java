@@ -113,10 +113,4 @@ public class BreadthFirstDirectedPaths {
         path.push(x);
         return path;
     }
-
-    /**
-     * Unit tests the <tt>BreadthFirstDirectedPaths</tt> data type.
-     */
-    public static void main(String[] args) {	
-    }
 }

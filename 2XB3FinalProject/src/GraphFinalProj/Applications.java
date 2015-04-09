@@ -120,13 +120,13 @@ public class Applications {
     	ArrayList<Integer> deadEnds = new ArrayList();
     	ArrayList<Integer> heard = heard(G);
     	ArrayList<Integer> told = told(G);
-    	for (int i = 0; i < heard.size(); i++) {				// iterate every element in the heard
-    		int hearer = heard.get(i);
-    		int searchResult = BinarySearch.rank(heard.get(i), told);
-    		if (searchResult == -1) {
+    	for (int i = 0; i < heard.size(); i++) {				// binary searches every element in the heard
+    		int hearer = heard.get(i);							// list in told, if it is in heard but not
+    		int searchResult = BinarySearch.rank(heard.get(i), told);	// told, that means it is a dead
+    		if (searchResult == -1) {							// end, i.e. if it's a search miss
     			deadEnds.add(hearer);
     		}
-    	}														// in heard but not told, that means 
+    	} 
     	return deadEnds;
     }
     
